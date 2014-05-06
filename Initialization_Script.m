@@ -13,12 +13,11 @@ for ii = 1:1:size(axes{1},2)
     fprintf('%d',ii)
     url = 'https://www.ebi.ac.uk/interpro/protein/';
     url = strcat(url,axes{1}{ii});
-    urldata = urlread2(url);
+    urldata = urlread(url);
     proteinindeces = findstr(urldata,'GO:');
     % Assume GO Code ID is 7 digits long, after the 'GO:' and that the
     % first 3 entries are for a sample GO code which do not chnage over
-    % time and that each GO code is mentioned twice.  Pesumably, urlread2
-    % isfaster than urlread (not official matlab script).
+    % time and that each GO code is mentioned twice.  
     count = 0;
     for iii = 4:2:length(proteinindeces)
         count = count + 1;
