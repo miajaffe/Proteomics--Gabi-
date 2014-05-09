@@ -14,10 +14,13 @@
 % UPDATE: If you have MusProt.mat in the working directory, the FASTA data
 % is not needed and the program runs fastA.
 
+% [redunancies] = the vector of indeces within axes for redundant protein
+% ID's.
+
 % Form to use if MusProtRaw.mat unavailable
 % function [normOverlord] = OverlordNormalizer(choice,MusProtRaw)
 % Form to use if MusProtRaw.mat is available
-function [normOverlord] = OverlordNormalizer(choice)
+function [normOverlord,redundancies] = OverlordNormalizer(choice)
 % Normalized by columns, compare all proteins within one sample.  To do
 % this, we must divide each protein's number of counts by the protein amino
 % acid length, since number of counts scales with number of enzymatic
@@ -32,6 +35,7 @@ function [normOverlord] = OverlordNormalizer(choice)
 load('MusProt.mat')
 load('OverlordMatrix.mat');
 load('axes.mat');
+
 if choice == 1
     % First step is to acquire the MW of each and every protein.
     proteinID = {MusProt.Header};
@@ -48,6 +52,7 @@ if choice == 1
     keysProt = axes{1,1};
     noGood = {};
     ggCounter = 0;
+    redundancies = [];
     for ii = 1:1:length(colNormFactor)
 %         fprintf('%d\n',ii)
         % Ignores false positives with '_' in ID name
@@ -57,6 +62,8 @@ if choice == 1
             else
                 % To deal with weird reduncancies, search the web to find
                 % AA length of equivalent protein
+                % http://stackoverflow.com/questions/8061344/how-to-search-for-a-string-in-cell-array-in-matlab
+                redundancies(length(redundancies)+1) = find(ismember(axes{1},keysProt{ii}));
                 url = strcat('http://www.uniprot.org/uniprot/',keysProt{ii});
                 urldata = urlread(url);
                 urlposition = findstr(urldata,' AA');
