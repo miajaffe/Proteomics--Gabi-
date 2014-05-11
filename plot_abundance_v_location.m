@@ -1,4 +1,6 @@
+%% Call normalization script to normalize values in matrix
 
+NewOverlord = normalization_mia(OverlordMatrix);
 
 
 %% Get mean and standard deviations of replicates
@@ -14,8 +16,8 @@ for i = 1:892
       % loop through all 5 positions
       for k = 1:5
         % record mean and standard deviations to two new matrices
-        AvgReps(i,j,k) = mean(OverlordMatrix(i,:,j,k));
-        StdReps(i,j,k) = std(OverlordMatrix(i,:,j,k));
+        AvgReps(i,j,k) = mean(NewOverlord(i,:,j,k));
+        StdReps(i,j,k) = std(NewOverlord(i,:,j,k));
       end
    end
 end
@@ -80,7 +82,7 @@ end
 
 % set minimum and maximum protein abundance averages:
 max = 100;
-min = 20;
+min = 10;
 
 % loop through 3 colonization states
 for i = 1:3

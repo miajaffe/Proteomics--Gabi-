@@ -3,7 +3,7 @@
 % sample, then mutliplied by a factor.
 % The normlized matrix is saved in a new variable 'NewOverlord'
 
-function NewOverlord = normalization(OverlordMatrix)
+function NewOverlord = normalization_mia(OverlordMatrix)
 
 % Loop through all three mouse replicates:
 for i = 1:3
