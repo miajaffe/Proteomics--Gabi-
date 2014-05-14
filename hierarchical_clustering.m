@@ -31,14 +31,33 @@ for mouse_num = 1:3
         end
     end
 end
-            
+%%
+%Simple statistics
+ranges = range(all_samples);
+max_range = max(ranges) %range = 0.2343 
+boxplot(all_samples);
+title('Distribution of normalized abundance per sample')
+xlabel('Sample')
+ylabel('Normalized Protein Abundance')
+median = median(all_samples) % median is 0 for all except col 32 where median = 0.1402
+percentages = prctile(all_samples, [25 50 75 90 95]); %percentages for each col
+
+reshaped_samples = reshape(all_samples, 40140,1);
+percentages = prctile(reshaped_samples, [25 50 75 90 95])
+% 50% = 0 75% = 0.0002  90% = 0.0015   95% = 0.0043
+
+%%Should we remove proteins with 0 values?!
+
+           
 %%
 % The following code is still a work in progress.
 
 % This creates a clustergram of the data where proteins are on the y axis
 % and the samples are on the x axis. The goal is to group samples into
 % individual clusters. 
-clustergram(all_samples, 'RowLabels', proteins, 'ColumnLabels', all_labels', 'DisplayRange', 0.0005);
+
+% 10% of the data is above the cutoff.
+clustergram(all_samples, 'RowLabels', proteins, 'ColumnLabels', all_labels', 'DisplayRange', 0.0015, 'Symmetric', 'true', 'Colormap', winter);
 
 % clustergram(all_samples, 'RowPDist', 'spearman');
 %%
