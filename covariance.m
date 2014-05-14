@@ -13,7 +13,7 @@ normOverlord = OverlordNormalizer(2);
 % The top 5 are from the GF mice, next 5 are B theta, and last 5 are
 % conventional mice.
 % The ordering from L to R: cecum, ileum, jejunum, prox colon, stomach 
-
+figure;
 count = 1;
 for r = 1:3
     for s = 1:5
@@ -28,6 +28,7 @@ end
 %%
 % Correlation matrix for the same data
 count = 1;
+figure;
 for r = 1:3
     for s = 1:5
         cor_matrix = corrcoef(normOverlord(:,:,r,s))
@@ -56,7 +57,7 @@ for i = 1:892
    end
 end
 
-    
+figure; 
 % Analyze covariance of protein expression at different regions along the
 % GI tract in GF Mice. All three replicates are averaged together. 
 % The order is stomach, jejunum, ileum, cecum, proximal colon.
@@ -88,7 +89,8 @@ title('Covariance Matrix of samples along the GI tract, Conventional Mice')
 
 %%
 % Correlation
-    
+ 
+figure;
 % Analyze correlation of protein expression at different regions along the
 % GI tract in GF Mice. All three replicates are averaged together. 
 % The order is stomach, jejunum, ileum, cecum, proximal colon.

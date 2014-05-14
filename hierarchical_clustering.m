@@ -45,6 +45,8 @@ percentages = prctile(all_samples, [25 50 75 90 95]); %percentages for each col
 reshaped_samples = reshape(all_samples, 40140,1);
 percentages = prctile(reshaped_samples, [25 50 75 90 95])
 % 50% = 0 75% = 0.0002  90% = 0.0015   95% = 0.0043
+percentages2 = prctile(reshaped_samples, [81 82 83 84 85])
+
 
 %%Should we remove proteins with 0 values?!
 
@@ -67,10 +69,10 @@ clustergram(all_samples, 'RowLabels', proteins, 'ColumnLabels', all_labels', 'Di
 % samples in each cluster. 
 corrDist = pdist(all_samples);
 clusterTree = linkage(corrDist, 'average');
-clusters=cluster(clusterTree, 'maxclust', 15); %15 comes from 3 colonization states * 5 locations
- for c = 1:15
-     subplot(3,5,c);
-     plot(all_samples((clusters == c))');
+clusters=cluster(clusterTree, 'maxclust', 5); %15 comes from 3 colonization states * 5 locations
+ for c = 1:5
+     subplot(5,1,c);
+     plot(all_samples((clusters == c))')
      axis tight
  end
  suptitle('Hierarchical Clustering of Profiles');
