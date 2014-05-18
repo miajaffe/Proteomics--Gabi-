@@ -92,7 +92,10 @@ if choice == 1
     % of counts within= the given sample.  This is because, even though the
     % instrument and methods are generally the same, small differences affect
     % the overall responsiveness to a given sample.
+    normOverlord1 = normOverlord;
+    save(normOverlord1);
 elseif choice == 2
+    redundancies = [];
     % Find the sum of all counts in every sample
     rowNormFactor = sum(OverlordMatrix,1);
     % Tile the rowNormFactor so that it has the same dimensions as
@@ -100,6 +103,8 @@ elseif choice == 2
     tiledNorm = repmat(rowNormFactor,size(OverlordMatrix,1),1,1,1);
     % Divide OverlordMatrix by the tiledNorm
     normOverlord = OverlordMatrix ./ tiledNorm;
+    normOverlord2 = normOverlord;
+    save('normOverlord2')
 else
     fprintf('Not a valid choice. GAME OVER. Insert 1 credit to continue.  Yes/No?')
 end
