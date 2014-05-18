@@ -5,10 +5,10 @@ close all
 clc
 filename = 'Longitudinal_RawCounts_ForClass_NoDecoy.xlsx';
 [OverlordMatrix,PeptideMap,LetterMap,axes] = PrepareRawData(filename);
-save('OverlordMatrix.mat')
-save('axes');
-save('ProteinMap.mat');
-save('LetterMap.mat');
+save('OverlordMatrix.mat','OverlordMatrix')
+save('axes','axes');
+save('ProteinMap.mat','ProteinMap');
+save('LetterMap.mat','LetterMap');
 % %% Download associated GO-codes for each and every protein
 % % Could include functionality to scrape the GO code matrix from multiple
 % % computers by dividing labor via partitioning the for loop.
