@@ -63,9 +63,39 @@ colorbar;
 
 [eigenvectors,eigenvalues,explained] = pcacov(covariance_matrix);
 
+%%
+% Create Color Maps
+
+% Gut Location
+
+for i = 1: numel(all_labels);
+    split_strings(i,:) = strsplit(all_labels{1,i}, '_');
+end
+
+color_by_GutRegion_strings = split_strings(:,3);
+
+% color_by_GutRegion = zeros(45, 3);
+
+cecum_color = strcmp(color_by_GutRegion_strings, 'cecum');
+
+if cecum_color == 1;
+   pass = 1;
+end
+
+% elseif
+    'ileum'
+    'jejunum'
+    'prox colon'
+    'Stomach'
+
+color_by_ColonizationState = split_strings(:,2);
+
+% Plot PC1 vs PC2 vs PC3
+
+scatter3(eigenvectors(:,1), eigenvectors(:,2), eigenvectors(:,3), 100, color_by_GutRegion, 'filled');
 
 %% 
-% step 5: generate files for a PCA plot
+% step 5: generate files needed for a PCA plot
 
 eigenvector_matrix = eigenvectors;
 add_labels = {'eigvals'; '% variation explained'};
