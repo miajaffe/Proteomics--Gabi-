@@ -45,6 +45,8 @@ end
 % titles)
 colStateKey = {'Germ-Free', 'B. theta', 'Conventional'};
 
+clf;
+
 % loop through three colonization states:
 for i = 1:3
     
@@ -84,6 +86,8 @@ end
 max = 100;
 min = 10;
 
+clf;
+
 % loop through 3 colonization states
 for i = 1:3
     
@@ -115,7 +119,15 @@ for i = 1:3
 end
 
 
+%% Normalize across five GI locations
 
+for i = 1:3
+   for j = 1:892
+       norm_col_all_matrices{1, i}(j,:) = all_matrices{1,i}(j,:)./max(all_matrices{1,i}(j,:));
+       
+       
+   end
+end
 
 
 
