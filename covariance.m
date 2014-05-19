@@ -101,6 +101,8 @@ imagesc(cor_matrix1)
 title('Correlation Matrix of samples along the GI tract, GF Mice')
 % regions= {'Stomach'; 'Jejunum'; 'Ileum'; 'Cecum'; 'Proximal Colon'}
 % xlabel(regions)
+[rho1, pval1]= corr(test, 'type', 'Spearman');
+
 
 % Analyze correlation of protein expression at different regions along the
 % GI tract in B theta colonized Mice. All three replicates are averaged together. 
@@ -110,6 +112,8 @@ cor_matrix2 = corrcoef(test)
 subplot(3,1,2)
 imagesc(cor_matrix2)
 title('Correlation Matrix of samples along the GI tract, B. theta Mice')
+[rho2, pval2]= corr(test, 'type', 'Spearman');
+
 
 % Analyze correlation of protein expression at different regions along the
 % GI tract in conventionally colonized Mice. All three replicates are averaged together. 
@@ -119,3 +123,6 @@ cor_matrix3 = corrcoef(test)
 subplot(3,1,3)
 imagesc(cor_matrix3)
 title('Correlation Matrix of samples along the GI tract, Conventional Mice')
+
+% Spearman correlation
+[rho3, pval3]= corr(test, 'type', 'Spearman');

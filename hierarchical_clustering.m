@@ -59,7 +59,7 @@ percentages2 = prctile(reshaped_samples, [81 82 83 84 85])
 % individual clusters. 
 
 % 10% of the data is above the cutoff.
-clustergram(all_samples, 'RowLabels', proteins, 'ColumnLabels', all_labels', 'DisplayRange', 0.0015, 'Symmetric', 'true', 'Colormap', winter);
+cluster = clustergram(all_samples, 'RowLabels', proteins, 'ColumnLabels', all_labels', 'DisplayRange', 0.0015, 'Symmetric', 'true', 'Colormap', winter);
 
 % clustergram(all_samples, 'RowPDist', 'spearman');
 %%
@@ -69,7 +69,7 @@ clustergram(all_samples, 'RowLabels', proteins, 'ColumnLabels', all_labels', 'Di
 % samples in each cluster. 
 corrDist = pdist(all_samples);
 clusterTree = linkage(corrDist, 'average');
-clusters=cluster(clusterTree, 'maxclust', 5); %15 comes from 3 colonization states * 5 locations
+clusters=cluster(clusterTree, 'maxclust', 5); 
  for c = 1:5
      subplot(5,1,c);
      plot(all_samples((clusters == c))')
