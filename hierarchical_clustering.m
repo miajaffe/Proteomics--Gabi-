@@ -7,10 +7,10 @@ close all hidden
 clc
 load('axes.mat');
 load('LetterMap.mat');
-load('normOverlord2.mat');
+load('normOverlordF.mat');
 load('ProteinMap.mat');
 load('MusProt.mat')
-normOverlord = normOverlord2; 
+normOverlord = normOverlordF; 
 all_samples = [];
 all_labels = {};
 proteins = axes{1}'; %generates list of protein ids
@@ -42,10 +42,10 @@ ylabel('Normalized Protein Abundance')
 median = median(all_samples) % median is 0 for all except col 32 where median = 0.1402
 percentages = prctile(all_samples, [25 50 75 90 95]); %percentages for each col
 
-reshaped_samples = reshape(all_samples, 39420,1);
-percentages = prctile(reshaped_samples, [25 50 75 90 95])
-% 50% = 0 75% = 0.0002  90% = 0.0015   95% = 0.0043
-percentages2 = prctile(reshaped_samples, [81 82 83 84 85])
+% reshaped_samples = reshape(all_samples, 39420,1);
+% percentages = prctile(reshaped_samples, [25 50 75 90 95])
+% % 50% = 0 75% = 0.0002  90% = 0.0015   95% = 0.0043
+% percentages2 = prctile(reshaped_samples, [81 82 83 84 85])
 
 
 %%Should we remove proteins with 0 values?!

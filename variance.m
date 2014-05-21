@@ -3,10 +3,9 @@ close all hidden
 clc
 load('axes.mat');
 load('LetterMap.mat');
-load('OverlordMatrix.mat');
+load('normOverlordF.mat');
 load('ProteinMap.mat');
 load('MusProt.mat')
-normOverlord = OverlordNormalizer(2); %normalize by row
 normOverlord = normOverlord .* 100;
 
 cecum_samples = [];

@@ -3,7 +3,7 @@ close all hidden
 clc
 load('axes.mat');
 load('LetterMap.mat');
-load('normOverlord2.mat');
+load('normOverlordF.mat');
 load('ProteinMap.mat');
 load('MusProt.mat')
 normOverlord = normOverlord2 .* 100;
