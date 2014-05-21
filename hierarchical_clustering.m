@@ -5,7 +5,7 @@
 clear all
 close all hidden
 clc
-load('axes.mat');
+%load('axes.mat');
 load('LetterMap.mat');
 load('normOverlordF.mat');
 load('ProteinMap.mat');
@@ -59,7 +59,10 @@ percentages = prctile(all_samples, [25 50 75 90 95]); %percentages for each col
 % individual clusters. 
 
 % 10% of the data is above the cutoff.
-cluster = clustergram(all_samples, 'RowLabels', proteins, 'ColumnLabels', all_labels', 'DisplayRange', 0.0015, 'Symmetric', 'true', 'Colormap', winter);
+cluster = clustergram(all_samples, 'ColumnLabels', all_labels', 'DisplayRange', 0.0015, 'Symmetric', 'true', 'Colormap', winter);
+%cluster = clustergram(all_samples, 'RowLabels', proteins, 'ColumnLabels', all_labels', 'DisplayRange', 0.0015, 'Symmetric', 'true', 'Colormap', winter);
+
+
 
 % clustergram(all_samples, 'RowPDist', 'spearman');
 %%
