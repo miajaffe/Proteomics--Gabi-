@@ -3,7 +3,7 @@
 clear all
 close all
 clc
-filename = 'Longitudinal_RawCounts_ForClass.xlsx';
+filename = 'Longitudinal_RawCounts_ForClass_NoDecoy.xlsx';
 [OverlordMatrix,PeptideMap,LetterMap,axes] = PrepareRawData(filename);
 %% Download associated GO-codes for each and every protein
 % Could include functionality to scrape the GO code matrix from multiple
