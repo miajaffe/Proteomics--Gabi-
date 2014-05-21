@@ -53,7 +53,7 @@ ggCounter = 0;
 redundancies = [];
 for ii = 1:1:length(colNormFactor)
     %         fprintf('%d\n',ii)
-    % Ignores false positives with '_' in ID name
+    % Ignores decoys with '_' in ID name
     if length(strfind(keysProt{ii}, '_')) == 0
         if isKey(lengthMap,keysProt{ii}) == 1
             colNormFactor(ii) = lengthMap(keysProt{ii});
