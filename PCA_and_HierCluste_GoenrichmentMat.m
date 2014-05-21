@@ -7,6 +7,7 @@ load('axes.mat');
 load('LetterMap.mat');
 load('OverlordMatrix.mat');
 load('ProteinMap.mat');
+load('GOenrichMat.mat');
 load('MusProt.mat')
 normOverlord = OverlordNormalizer(2); %normalize by row
 all_samples = [];
@@ -63,11 +64,6 @@ colorbar;
 
 [eigenvectors,eigenvalues,explained] = pcacov(covariance_matrix);
 
-%% 
-% try to get loadings
-
-[COEFF,SCORE,latent,tsquare] = princomp(covariance_matrix);
-
 %%
 % Create Color Maps
 
@@ -94,8 +90,6 @@ end
     'Stomach'
 
 color_by_ColonizationState = split_strings(:,2);
-
-%%
 
 % Plot PC1 vs PC2 vs PC3
 
