@@ -3,11 +3,10 @@ close all hidden
 clc
 load('axes.mat');
 load('LetterMap.mat');
-load('OverlordMatrix.mat');
+load('normOverlord2.mat');
 load('ProteinMap.mat');
 load('MusProt.mat')
-normOverlord = OverlordNormalizer(2); %normalize by row
-normOverlord = normOverlord .* 100;
+normOverlord = normOverlord2 .* 100;
 %%
 replicate_one = [];
 replicate_two = [];
@@ -47,13 +46,8 @@ ylabel('Replicate 3')
 %%
 %3D plot of all variables
 figure
-scatter3(replicate_one, replicate_two,replicate_three);
-%plot y = x
-hold on;
-x = linspace(-5,4,50);
-y = x;
-z = x;
-plot3(x,y,z, 'r')
+scatter3(log(replicate_one), log(replicate_two),log(replicate_three));
+
 
 
         
