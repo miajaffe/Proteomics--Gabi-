@@ -1,10 +1,10 @@
 %% Call normalization script to normalize values in matrix
 
-NewOverlord = normalization_mia(OverlordMatrix);
+% NewOverlord = normalization_mia(OverlordMatrix);
 % 5/20/14-no longer needed, will use Evan's normalized data in
 % normOverlordF.
 
-% NewOverlord = normOverlordF;
+NewOverlord = normOverlordFinal;
 
 %% Get mean and standard deviations of replicates
 
@@ -12,8 +12,8 @@ NewOverlord = normalization_mia(OverlordMatrix);
 % each protein in each of the conditions, and store in two new 3-D
 % matrices.
 
-% loop through all 876 proteins
-for i = 1:876
+% loop through all proteins
+for i = 1:843
     % loop through all 3 colonization states
     for j = 1:3
       % loop through all 5 positions
