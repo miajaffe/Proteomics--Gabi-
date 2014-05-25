@@ -5,10 +5,9 @@ close all hidden
 clc
 load('axes.mat');
 load('LetterMap.mat');
-load('OverlordMatrix.mat');
+load('normOverlordFinal_140523.mat');
 load('ProteinMap.mat');
 load('MusProt.mat')
-normOverlord = OverlordNormalizer(2); %normalize by row
 all_samples = [];
 all_labels = {};
 proteins = axes{1}'; %generates list of protein ids
@@ -23,7 +22,7 @@ proteins = axes{1}'; %generates list of protein ids
 for mouse_num = 1:3
     for colonization = 1:3
         for loc = 1:5
-            all_samples = [all_samples normOverlord(:,mouse_num, colonization, loc)];
+            all_samples = [all_samples normOverlordFinal(:,mouse_num, colonization, loc)];
             label = strcat(axes{2}{mouse_num}, '_', axes{3}{colonization} , '_', axes{4}{loc});           
             all_labels = [all_labels label];
         end
@@ -63,87 +62,106 @@ colorbar;
 
 [eigenvectors,eigenvalues,explained] = pcacov(covariance_matrix);
 
-%% 
-% try to get loadings
-
-[COEFF,SCORE,latent,tsquare] = princomp(covariance_matrix);
 
 %%
-% Create Color Maps
 
-% Gut Location
+% Create Color Maps
 
 for i = 1: numel(all_labels);
     split_strings(i,:) = strsplit(all_labels{1,i}, '_');
 end
 
-color_by_GutRegion_strings = split_strings(:,3);
+% Gut Location
 
-% color_by_GutRegion = zeros(45, 3);
+color_by_GutRegion = zeros(45, 3);
 
-cecum_color = strcmp(color_by_GutRegion_strings, 'cecum');
+ for i = 1: numel(all_labels);
 
-if cecum_color == 1;
-   pass = 1;
-end
+    if strcmp(split_strings(i,3), 'cecum') % Color cecum Red
+    color_by_GutRegion(i,1) = 1; color_by_GutRegion(i,2) = 0; color_by_GutRegion(i,3) = 0;
 
-% elseif
-    'ileum'
-    'jejunum'
-    'prox colon'
-    'Stomach'
+    elseif strcmp(split_strings(i,3), 'ileum') % Color ileum Green
+    color_by_GutRegion(i,1) = 0; color_by_GutRegion(i,2) = 1; color_by_GutRegion(i,3) = 0;
 
-color_by_ColonizationState = split_strings(:,2);
+    elseif strcmp(split_strings(i,3), 'jejunum') % Color jejunum Blue
+    color_by_GutRegion(i,1) = 0; color_by_GutRegion(i,2) = 0; color_by_GutRegion(i,3) = 1;
+
+    elseif strcmp(split_strings(i,3), 'prox colon') % Color prox colon cyan
+    color_by_GutRegion(i,1) = 0; color_by_GutRegion(i,2) = 1; color_by_GutRegion(i,3) = 1;
+
+    else strcmp(split_strings(i,3), 'Stomach') % Color Stomach magenta
+    color_by_GutRegion(i,1) = 1; color_by_GutRegion(i,2) = 0; color_by_GutRegion(i,3) = 1;
+    
+    end
+ end
+ 
+% Colonization State
+
+color_by_ColonizationState = zeros(45, 3);
+
+ for i = 1: numel(all_labels);
+
+    if strcmp(split_strings(i,2), 'BT') % Color BT mice Red
+    color_by_ColonizationState(i,1) = 1; color_by_ColonizationState(i,2) = 0; color_by_ColonizationState(i,3) = 0;
+
+    elseif strcmp(split_strings(i,2), 'RF') % Color RF mice Green
+    color_by_ColonizationState(i,1) = 0; color_by_ColonizationState(i,2) = 1; color_by_ColonizationState(i,3) = 0;
+
+    else strcmp(split_strings(i,2), 'GF') % Color Germ Free mice Blue 
+    color_by_ColonizationState(i,1) = 0; color_by_ColonizationState(i,2) = 0; color_by_ColonizationState(i,3) = 1;
+    
+    end
+ end
+ 
+%%
+
+% Plot PC1 vs PC2 vs PC3 for Gut Region
+
+figure
+scatter3(eigenvectors(:,1), eigenvectors(:,2), eigenvectors(:,3), 100, color_by_GutRegion, 'filled');
+hold on
+title('Principal Component Analysis: Gut Region');
+xlabel(sprintf('PC1 = %.3i', explained(1,1)));
+ylabel(sprintf('PC2 = %.3i', explained(2,1)));
+zlabel(sprintf('PC3 = %.3i', explained(3,1)));
+[~, I] = unique(split_strings(:,3)); 
+I = length(split_strings(:,3)) - I(length(I):-1:1); 
+p = findobj(gca,'Type','Patch');
+legend(p(I), 'stomach', 'prox colon', 'jejunum', 'ileum', 'cecum');
+hold off
 
 %%
 
-% Plot PC1 vs PC2 vs PC3
+% Plot PC1 vs PC2 vs PC3 for Colonization State
 
-scatter3(eigenvectors(:,1), eigenvectors(:,2), eigenvectors(:,3), 100, color_by_GutRegion, 'filled');
+figure
+scatter3(eigenvectors(:,1), eigenvectors(:,2), eigenvectors(:,3), 100, color_by_ColonizationState, 'filled');
+hold on
+title('Principal Component Analysis: Colonization State');
+xlabel(sprintf('PC1 = %.3i', explained(1,1)));
+ylabel(sprintf('PC2 = %.3i', explained(2,1)));
+zlabel(sprintf('PC3 = %.3i', explained(3,1)));
+[~, I] = unique(split_strings(:,2)); 
+I = length(split_strings(:,2)) - I(length(I):-1:1); 
+p = findobj(gca,'Type','Patch');
+legend(p(I), 'BT', 'RF', 'GF');
+hold off
+
 
 %% 
-% step 5: generate files needed for a PCA plot
+% According to the princomp help files, the loadings are the COEFF file.
+% However, but I don't understand how to interpret them. Also, princomp is
+% old and they don't recommend using it. 
 
-eigenvector_matrix = eigenvectors;
-add_labels = {'eigvals'; '% variation explained'};
-add_title = {'pc vector number'};
-pc_vector_labels = all_labels';
-pc_vector_number = vertcat(add_title,pc_vector_labels, add_labels);
+[COEFF,SCORE,latent,tsquare] = princomp(covariance_matrix);
 
-pc_labels = (1:size(all_labels,2));
-eigvals = eigenvalues';
-variation_explained = explained';
-
-eigenvector_matrix_labeled = vertcat(pc_labels, eigenvector_matrix, eigvals, variation_explained);
-eigenvector_table = table(pc_vector_number, eigenvector_matrix_labeled);
-
-writetable(eigenvector_table,'QIIME_proteomics_pc.txt','Delimiter','\t');
-
-% Then open in microsoft excel and delete the first line.
 
 %%
-% plot data with the eigenvectors 
-figure;
-scatter3(all_samples(:,1),all_samples(:,2),...
-    all_samples(:,3),100,[1 0 0],'filled');
-ev1 = eigenvectors(:,1)*eigenvalues(1,1);
-ev2 = eigenvectors(:,2)*eigenvalues(2,2);
-ev3 = eigenvectors(:,3)*eigenvalues(3,3);
-hold on;
-%plot3([avg(1)-ev1(1) avg(1)+ev1(1)],[avg(2)-ev1(2) avg(2)+ev1(2)], ...
- %    [avg(3)-ev1(3) avg(3)+ev1(3)],'Color',[0 0 1],'LineWidth',3);
-% plot3([avg(1)-ev2(1) avg(1)+ev2(1)],[avg(2)-ev2(2) avg(2)+ev2(2)], ...
-%     [avg(3)-ev2(3) avg(3)+ev2(3)],'Color',[0 0 0],'LineWidth',3);
-%plot3([avg(1)-ev3(1) avg(1)+ev3(1)],[avg(2)-ev3(2) avg(2)+ev3(2)], ...
- %    [avg(3)-ev3(3) avg(3)+ev3(3)],'Color',[0 1 1],'LineWidth',3);
-hold off;
-axis equal
-
-%%
+% PCA Visulization Tool
+% Note: I don't think this is very useful for us, but MATLAB has it
  mapcaplot(all_samples)
  
- %%
- 
+
  
   %% Hierarchical Clustering
 % The following code creates a 2D matrix of proteins vs samples and creates
@@ -157,9 +175,18 @@ axis equal
 % This creates a clustergram of the data where proteins are on the y axis
 % and the samples are on the x axis. The goal is to group samples into
 % individual clusters. 
-clustergram(all_samples, 'RowLabels', proteins, 'ColumnLabels', all_labels', 'DisplayRange', 0.0005, 'colormap', 'winter');
 
+
+clustergram(all_samples, 'ColumnLabels', all_labels', 'DisplayRange', 0.0005, 'colormap', 'jet');
+% hold on
+% addTitle('Hierarchical Clustering of Proteins');
+% addXLabel('Samples');
+% addYLabel('Proteins');
+% hold off
+ 
+% note: add 'RowLabels', proteins,  when the axes file is fixed
 % clustergram(all_samples, 'RowPDist', 'spearman');
+
 %%
 % The following code is very similar to the clustergram above, but it takes
 % a manual approach. It was adapted from Tiffany's code from class.
@@ -174,74 +201,6 @@ clusters=cluster(clusterTree, 'maxclust', 15); %15 comes from 3 colonization sta
      axis tight
  end
  suptitle('Hierarchical Clustering of Profiles');
-
-
-%%
-
-
-raw_data = xlsread('Longitudinal_RawCounts_ForClass.xlsx', 2);
-
-number_of_proteins = size(raw_data,1);
-number_of_samples = size(raw_data,2);
-
-raw_data_avg = mean(raw_data);
-
-raw_data_avg_matrix = repmat(raw_data_avg, number_of_proteins, 1);
-
-data_normalized = raw_data./raw_data_avg_matrix;
-
-%% PCA 
-% step 1: Calculate the average over all vectors
-avg = mean(data_normalized);
-
-%%
-% step 2: Subtract the average from all vectors
-diff_avg = data_normalized-repmat(avg, number_of_proteins, 1);
-
-%%
-% step 3: Calculate the covariance_matrixariance matrix
-
-covariance_matrix = zeros(number_of_samples, number_of_samples);
-
-for i = 1:number_of_samples;
-    for j = 1:number_of_samples;
-        covariance_matrix(i,j) = 1/(number_of_proteins - 1) * ...
-            sum(diff_avg(:,i).*diff_avg(:,j));
-    end
-end
-imagesc(covariance_matrix);
-colorbar;
-% disp(covariance_matrix);
-
-%%
-% step 4: calculate eigs of covariance_matrixariance matrix
-[V,D] = eigs(covariance_matrix);
-% disp(V);
-% disp(diag(D));
-
-%%
-% plot data with the eigenvectors 
-figure;
-scatter3(data_normalized(:,1),data_normalized(:,2),...
-    data_normalized(:,3),100,[1 0 0],'filled');
-ev1 = V(:,1)*D(1,1);
-ev2 = V(:,2)*D(2,2);
-ev3 = V(:,3)*D(3,3);
-hold on;
-plot3([avg(1)-ev1(1) avg(1)+ev1(1)],[avg(2)-ev1(2) avg(2)+ev1(2)], ...
-     [avg(3)-ev1(3) avg(3)+ev1(3)],'Color',[0 0 1],'LineWidth',3);
-plot3([avg(1)-ev2(1) avg(1)+ev2(1)],[avg(2)-ev2(2) avg(2)+ev2(2)], ...
-     [avg(3)-ev2(3) avg(3)+ev2(3)],'Color',[0 0 0],'LineWidth',3);
-plot3([avg(1)-ev3(1) avg(1)+ev3(1)],[avg(2)-ev3(2) avg(2)+ev3(2)], ...
-     [avg(3)-ev3(3) avg(3)+ev3(3)],'Color',[0 1 1],'LineWidth',3);
-hold off;
-axis equal
-
-%%
- mapcaplot(data_normalized)
-
-
-
 
 
 
