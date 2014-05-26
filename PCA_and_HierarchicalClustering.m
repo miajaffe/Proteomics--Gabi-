@@ -10,7 +10,6 @@ load('ProteinMap.mat');
 load('MusProt.mat')
 all_samples = [];
 all_labels = {};
-proteins = axes{1}'; %generates list of protein ids
 
 % This loops through all mouse #s, colonization states, and locations to
 % create a 2D matrix where each row is a protein_id and each column is a
@@ -176,8 +175,11 @@ hold off
 % and the samples are on the x axis. The goal is to group samples into
 % individual clusters. 
 
+load('axes.mat');
+proteins = axes{1}'; %generates list of protein ids
 
-clustergram(all_samples, 'ColumnLabels', all_labels', 'DisplayRange', 0.0005, 'colormap', 'jet');
+clustergram(all_samples, 'RowLabels', proteins, 'ColumnLabels', all_labels', 'DisplayRange', 0.0015, 'Symmetric', 'true', 'colormap', 'jet');
+% colorbar
 % hold on
 % addTitle('Hierarchical Clustering of Proteins');
 % addXLabel('Samples');
