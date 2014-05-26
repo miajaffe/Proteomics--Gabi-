@@ -11,7 +11,7 @@ clear all
 close all
 clc
 load('GOArray')
-load('normOverlord');
+load('normOverlordFinal');
 load('axes')
 GONum = {GOArray{:,3}};
 GOOccur = zeros(1,9999999);
