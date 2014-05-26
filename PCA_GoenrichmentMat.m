@@ -3,31 +3,29 @@
 clear all
 close all hidden
 clc
-load('axes.mat');
-load('LetterMap.mat');
+load('axes140523.mat');
 load('normOverlordFinal_140523.mat');
-load('ProteinMap.mat');
-load('MusProt.mat')
+load('GOenrichMat'); % 3013 * 3 * 3 * 5 4d matrix NOTE: This isn't the most updated version!
 all_samples = [];
 all_labels = {};
+normOverlord = normOverlordFinal; 
 
 % This loops through all mouse #s, colonization states, and locations to
-% create a 2D matrix where each row is a protein_id and each column is a
+% create a 2D matrix where each row is a gocode_id and each column is a
 % different sample (sample A, B, etc.). The matrix, all_samples, contains the abundance
-% of each protein at each sample.  The all_labels matrix is a 1x45 matrix
+% of each GO code at each sample.  The all_labels matrix is a 1x45 matrix
 % that contains labels for each sample in the order that they are in teh
-% all_samples matrix. The all_labels matrix and the proteins matrix can be 
-% used for labeling the axes of any plots.
+% all_samples matrix. 
 for mouse_num = 1:3
     for colonization = 1:3
         for loc = 1:5
-            all_samples = [all_samples normOverlordFinal(:,mouse_num, colonization, loc)];
+            all_samples = [all_samples GOenrichMat(:,mouse_num, colonization, loc)];
             label = strcat(axes{2}{mouse_num}, '_', axes{3}{colonization} , '_', axes{4}{loc});           
             all_labels = [all_labels label];
         end
     end
 end
-            
+
 
 %% PCA 
 % By Daniel Sprockett
@@ -35,11 +33,11 @@ end
 avg = mean(all_samples);
 
 %%
-number_of_proteins = size(all_samples,1);
+number_of_GOcodes = size(all_samples,1);
 number_of_samples = size(all_samples,2);
 
 % step 2: Subtract the average from all vectors
-diff_avg = all_samples-repmat(avg, number_of_proteins, 1);
+diff_avg = all_samples-repmat(avg, number_of_GOcodes, 1);
 
 %%
 % step 3: Calculate the covariance_matrixariance matrix
@@ -48,7 +46,7 @@ covariance_matrix = zeros(number_of_samples, number_of_samples);
 
 for i = 1:number_of_samples;
     for j = 1:number_of_samples;
-        covariance_matrix(i,j) = 1/(number_of_proteins - 1) * ...
+        covariance_matrix(i,j) = 1/(number_of_GOcodes - 1) * ...
             sum(diff_avg(:,i).*diff_avg(:,j));
     end
 end
@@ -145,64 +143,3 @@ I = length(split_strings(:,2)) - I(length(I):-1:1);
 p = findobj(gca,'Type','Patch');
 legend(p(I), 'BT', 'RF', 'GF');
 hold off
-
-
-%% 
-% According to the princomp help files, the loadings are the COEFF file.
-% However, but I don't understand how to interpret them. Also, princomp is
-% old and they don't recommend using it. 
-
-[COEFF,SCORE,latent,tsquare] = princomp(covariance_matrix);
-
-
-%%
-% PCA Visulization Tool
-% Note: I don't think this is very useful for us, but MATLAB has it
- mapcaplot(all_samples)
- 
-
- 
-  %% Hierarchical Clustering
-% The following code creates a 2D matrix of proteins vs samples and creates
-% a clustergram to visualize hierarchical clustering of the data.
-
- 
-%%
-% By Emily Alsentzer
-% The following code is still a work in progress.
-
-% This creates a clustergram of the data where proteins are on the y axis
-% and the samples are on the x axis. The goal is to group samples into
-% individual clusters. 
-
-load('axes.mat');
-proteins = axes{1}'; %generates list of protein ids
-
-clustergram(all_samples, 'RowLabels', proteins, 'ColumnLabels', all_labels', 'DisplayRange', 0.0015, 'Symmetric', 'true', 'colormap', 'jet');
-% colorbar
-% hold on
-% addTitle('Hierarchical Clustering of Proteins');
-% addXLabel('Samples');
-% addYLabel('Proteins');
-% hold off
- 
-% note: add 'RowLabels', proteins,  when the axes file is fixed
-% clustergram(all_samples, 'RowPDist', 'spearman');
-
-%%
-% The following code is very similar to the clustergram above, but it takes
-% a manual approach. It was adapted from Tiffany's code from class.
-% Each cluster is graphed on a separate plot to visualize the number of 
-% samples in each cluster. 
-corrDist = pdist(all_samples);
-clusterTree = linkage(corrDist, 'average');
-clusters=cluster(clusterTree, 'maxclust', 15); %15 comes from 3 colonization states * 5 locations
- for c = 1:15
-     subplot(3,5,c);
-     plot(all_samples((clusters == c))');
-     axis tight
- end
- suptitle('Hierarchical Clustering of Profiles');
-
-
-
