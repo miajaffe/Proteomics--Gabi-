@@ -11,8 +11,8 @@ clear all
 close all
 clc
 load('GOArray')
-load('normOverlordFinal');
-load('axes')
+load('normOverlordFinal_140523');
+load('axes140523')
 GONum = {GOArray{:,3}};
 GOOccur = zeros(1,9999999);
 min = 9999999;
