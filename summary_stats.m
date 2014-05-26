@@ -65,6 +65,77 @@ for location = 1:5
         title(title_label(1));
         count = count + 1;
         % saveas(abundance,strcat('figure', num2str(count), '.pdf'))
+        
+        
+        %set colors
+        hp = findobj(abundance, 'Type', 'patch');
+        for i = 1: length(large_prot)
+            switch(large_prot{i})
+                case 'A8DUK4'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'B2RS76'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'P02815'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'P05208'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'P07146'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'P07743'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'Q3SYP2'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'Q61900'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'Q62395'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'Q64097'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'Q6P8U6'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'Q7TNM8'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'Q7TPZ8'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'Q8C5B4'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'Q8K0C5'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'Q8R0I0'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'Q91WB5'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'Q91WL7'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'Q91X79'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case'Q91XA9'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'Q921Y7'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'Q9CPN9'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'Q9CQ52'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'Q9CQC2'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'Q9CR35'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'Q9CY06'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'Q9ER05'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'Q9JM84'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'Q9R0T7'
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                case 'Q9CQC2'  
+                    set(hp(i), 'FaceColor', [0 1 1]);
+                   
+                    
+            end
+        end
     end
 end
+
 

@@ -34,7 +34,8 @@ axes = list(csv.reader(open('axes.txt','rb'),delimiter='\t'));
 finalDic = {}
 f = open('final_Dictionary_GO.txt','w')
 for i in xrange(len(axes[0])):
-    currentProtein = axes[0][i][1:7]
+    currentProtein = axes[0][i][0:7]
+    print currentProtein
     if dataDic.has_key(currentProtein):
         # Adjust for MATLAB 1 indexing
         f.write(str(i+1) + '\n')

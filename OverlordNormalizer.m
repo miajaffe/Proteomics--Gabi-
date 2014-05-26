@@ -99,7 +99,7 @@ rowNormFactor = sum(normOverlord,1);
 % normOverlord
 tiledNorm = repmat(rowNormFactor,size(normOverlord,1),1,1,1);
 % Divide normOverlord by the tiledNorm
-normOverlordF = normOverlord ./ tiledNorm;
-save('normOverlordF','normOverlordF')
+normOverlordFinal = normOverlord ./ tiledNorm;
+save('normOverlordFinal','normOverlordFinal')
 
 end
