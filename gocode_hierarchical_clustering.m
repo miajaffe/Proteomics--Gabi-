@@ -13,7 +13,7 @@ normOverlord = normOverlordFinal;
 % create a 2D matrix where each row is a gocode_id and each column is a
 % different sample (sample A, B, etc.). The matrix, all_samples, contains the abundance
 % of each GO code at each sample.  The all_labels matrix is a 1x45 matrix
-% that contains labels for each sample in the order that they are in the
+% that contains labels for each sample in the order that they are in teh
 % all_samples matrix. 
 for mouse_num = 1:3
     for colonization = 1:3

@@ -11,8 +11,8 @@ clear all
 close all
 clc
 load('GOArray')
-load('normOverlordFinal_140523');
-load('axes140523')
+load('normOverlordFinal');
+load('axes')
 GONum = {GOArray{:,3}};
 GOOccur = zeros(1,9999999);
 min = 9999999;
@@ -66,11 +66,11 @@ end
 % Multiplies each GO vector (tallies of GO codes for each protein) by the
 % normalized values from the normalized OverlordMatrix.
 repproteinGOMat = repmat(proteinGOMatrix,1,1,3,3,5);
-for ii= 1:1:size(normOverlord2,1)
-    for iii = 1:1:size(normOverlord2,2)
-        for iv = 1:1:size(normOverlord2,3)
-            for ivi = 1:1:size(normOverlord2,4)
-                repproteinGOMat(ii,:,iii,iv,ivi) = normOverlord2(ii,iii,iv,ivi) * repproteinGOMat(ii,:,iii,iv,ivi);
+for ii= 1:1:size(normOverlordFinal,1)
+    for iii = 1:1:size(normOverlordFinal,2)
+        for iv = 1:1:size(normOverlordFinal,3)
+            for ivi = 1:1:size(normOverlordFinal,4)
+                repproteinGOMat(ii,:,iii,iv,ivi) = normOverlordFinal(ii,iii,iv,ivi) * repproteinGOMat(ii,:,iii,iv,ivi);
             end
         end
     end

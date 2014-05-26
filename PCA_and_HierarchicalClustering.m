@@ -76,19 +76,19 @@ color_by_GutRegion = zeros(45, 3);
 
  for i = 1: numel(all_labels);
 
-    if strcmp(split_strings(i,3), 'cecum'); % Color cecum Red
+    if strcmp(split_strings(i,3), 'cecum') % Color cecum Red
     color_by_GutRegion(i,1) = 1; color_by_GutRegion(i,2) = 0; color_by_GutRegion(i,3) = 0;
 
-    elseif strcmp(split_strings(i,3), 'ileum'); % Color ileum Green
+    elseif strcmp(split_strings(i,3), 'ileum') % Color ileum Green
     color_by_GutRegion(i,1) = 0; color_by_GutRegion(i,2) = 1; color_by_GutRegion(i,3) = 0;
 
-    elseif strcmp(split_strings(i,3), 'jejunum'); % Color jejunum Blue
+    elseif strcmp(split_strings(i,3), 'jejunum') % Color jejunum Blue
     color_by_GutRegion(i,1) = 0; color_by_GutRegion(i,2) = 0; color_by_GutRegion(i,3) = 1;
 
-    elseif strcmp(split_strings(i,3), 'prox colon'); % Color prox colon cyan
+    elseif strcmp(split_strings(i,3), 'prox colon') % Color prox colon cyan
     color_by_GutRegion(i,1) = 0; color_by_GutRegion(i,2) = 1; color_by_GutRegion(i,3) = 1;
 
-    else strcmp(split_strings(i,3), 'Stomach'); % Color Stomach magenta
+    else strcmp(split_strings(i,3), 'Stomach') % Color Stomach magenta
     color_by_GutRegion(i,1) = 1; color_by_GutRegion(i,2) = 0; color_by_GutRegion(i,3) = 1;
     
     end
@@ -100,13 +100,13 @@ color_by_ColonizationState = zeros(45, 3);
 
  for i = 1: numel(all_labels);
 
-    if strcmp(split_strings(i,2), 'BT'); % Color BT mice Red
+    if strcmp(split_strings(i,2), 'BT') % Color BT mice Red
     color_by_ColonizationState(i,1) = 1; color_by_ColonizationState(i,2) = 0; color_by_ColonizationState(i,3) = 0;
 
-    elseif strcmp(split_strings(i,2), 'RF'); % Color RF mice Green
+    elseif strcmp(split_strings(i,2), 'RF') % Color RF mice Green
     color_by_ColonizationState(i,1) = 0; color_by_ColonizationState(i,2) = 1; color_by_ColonizationState(i,3) = 0;
 
-    else strcmp(split_strings(i,2), 'GF'); % Color Germ Free mice Blue 
+    else strcmp(split_strings(i,2), 'GF') % Color Germ Free mice Blue 
     color_by_ColonizationState(i,1) = 0; color_by_ColonizationState(i,2) = 0; color_by_ColonizationState(i,3) = 1;
     
     end
