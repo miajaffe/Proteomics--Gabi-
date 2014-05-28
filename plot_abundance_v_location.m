@@ -1,3 +1,15 @@
+%% Data preparation and plotting protein abundance by location
+% By: Mia Jaffe
+% This script has 4 parts:
+% 1. It assigns which matrix to pull data from
+% 2. It calculates the mean and standard deviation of the 3 mouse replicates
+% 3. It plots, for each protein in each colonization state the abundance vs location. 
+%    This section of the code also generates a new array, all_matrices, which contains
+%    one matrix for each colonization state holding avg counts of proteins (rows) 
+%    at each location (columns). This matrix will be referenced in the k-means script.
+% 4. Finally, it has the ability to plot the proteins vs locations excluding proteins 
+%    above and below a given threshold. This section was used in initial tests. 
+
 %% Call normalization script to normalize values in matrix
 
 % NewOverlord = normalization_mia(OverlordMatrix);
@@ -121,16 +133,6 @@ for i = 1:3
     
 end
 
-
-%% Normalize across five GI locations
-
-for i = 1:3
-   for j = 1:876
-       norm_col_all_matrices{1, i}(j,:) = all_matrices{1,i}(j,:)./max(all_matrices{1,i}(j,:));
-       
-       
-   end
-end
 
 
 
