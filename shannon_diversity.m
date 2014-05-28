@@ -8,9 +8,9 @@ load('normOverlordFinal_140523.mat');
 load('OverlordMatrix');
 
 normOverlord_manual = OverlordNormalizer();
-normOverlord = normOverlordFinal * 100;
+normOverlord = normOverlordFinal * 1000;
 %%
-cutoff = 2;
+cutoff = 5;
 cutoff_matrix = OverlordMatrix;
 for mouse_num = 1:3
     for colonization = 1:3
@@ -21,7 +21,7 @@ for mouse_num = 1:3
     end
 end
 %%
-[H,VarH]=index_SaW(OverlordMatrix,2);
+%[H,VarH]=index_SaW(OverlordMatrix,2);
 
-%[H,VarH]=index_SaW(normOverlord,2);
+[H,VarH]=index_SaW(normOverlord,2);
     

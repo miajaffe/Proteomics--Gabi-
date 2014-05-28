@@ -40,11 +40,11 @@ ylabel('Normalized Protein Abundance')
 median = median(all_samples) % median is 0 for all except col 32 where median = 0.1402
 percentages = prctile(all_samples, [25 50 75 90 95]); %percentages for each col
 
-reshaped_samples = reshape(all_samples, 39420,1);
+reshaped_samples = reshape(all_samples, 37935,1);
 percentages = prctile(reshaped_samples, [25 50 75 90 95])
-% % 50% = 0 75% = 0.0002  90% = 0.0015   95% = 0.0043
+% % % 50% = 0 75% = 0.0002  90% = 0.0015   95% = 0.0043
 percentages2 = prctile(reshaped_samples, [81 82 83 84 85])
-
+% 
 
 %%Should we remove proteins with 0 values?!
 
@@ -59,8 +59,6 @@ percentages2 = prctile(reshaped_samples, [81 82 83 84 85])
 % 10% of the data is above the cutoff.
 cluster = clustergram(all_samples, 'ColumnLabels', all_labels', 'DisplayRange', 0.0015, 'Symmetric', 'true', 'Colormap', winter);
 %cluster = clustergram(all_samples, 'RowLabels', proteins, 'ColumnLabels', all_labels', 'DisplayRange', 0.0015, 'Symmetric', 'true', 'Colormap', winter);
-
-
 
 % clustergram(all_samples, 'RowPDist', 'spearman');
 %%
