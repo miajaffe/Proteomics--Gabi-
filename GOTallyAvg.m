@@ -78,16 +78,14 @@ end
 % Sums the normalized GO tallies across all proteins, so there is now a
 % vector of GO tallies for each sample (sample defined as mouse ID,
 % colonization state, and location).
-GOenrichMatTemp = sum(repproteinGOMat,1);
-GOenrichMat = zeros(size(GOenrichMatTemp,2),size(GOenrichMatTemp,3),size(GOenrichMatTemp,4),size(GOenrichMatTemp,5));
+GOenrichMatTemp = mean(repproteinGOMat,1);
+GOenrichMatAvg = zeros(size(GOenrichMatTemp,2),size(GOenrichMatTemp,3),size(GOenrichMatTemp,4),size(GOenrichMatTemp,5));
 % Reshapes to be a 4D matrix rather than a 5D
 for ii = 1:1:size(GOenrichMatTemp,3)
     for iii = 1:1:size(GOenrichMatTemp,4)
         for iv = 1:1:size(GOenrichMatTemp,5)
-            GOenrichMat(:,ii,iii,iv) = GOenrichMatTemp(1,:,ii,iii,iv)';
+            GOenrichMatAvg(:,ii,iii,iv) = GOenrichMatTemp(1,:,ii,iii,iv)';
         end
     end
 end
-save('GOenrichMat','GOenrichMat')
-save('GOtoIndexConverter','GOtoIndexConverter')
-save('IndextoGOConverter','IndextoGOConverter')
+save('GOenrichMatAvg','GOenrichMatAvg')
