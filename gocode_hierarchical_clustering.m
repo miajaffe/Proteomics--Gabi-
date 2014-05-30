@@ -4,7 +4,7 @@ close all hidden
 clc
 load('axes140523.mat');
 load('normOverlordFinal_140523.mat');
-load('GOenrichMat'); % 3013 * 3 * 3 * 5 4d matrix NOTE: This isn't the most updated version!
+load('GOenrichMat'); % 2991 * 3 * 3 * 5 4d matrix 
 all_samples = [];
 all_labels = {};
 normOverlord = normOverlordFinal; 
@@ -35,4 +35,5 @@ percentages2 = prctile(reshaped_samples, [81 82 83 84 85]);
 
 %This clustergram is capturing between 83-84% of the data. In other words
 %16-17% of the data is above the 0.0015 cutoff.
+%%
 cluster = clustergram(all_samples, 'ColumnLabels', all_labels', 'DisplayRange', 0.0015, 'Symmetric', 'true', 'Colormap', winter);
