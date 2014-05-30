@@ -5,8 +5,8 @@
 % the first cell the annotation and the total incidence of said GO ID
 % within the list of UniProt IDs in the 2nd cell.  For example: key =
 % GO:99999999, value = {'unknown function',2}, given that two proteins have
-% the GO ID GO:99999999
-function [GOinformation] = getGOcodes(UniProts,GOArray,axes)
+% the GO ID GO:99999999.  Also requires allGODic.
+function [GOinformation] = getGOcodes(UniProts,GOArray,axes,allGODic)
 GOinformation = containers.Map();
 for i = 1:1:length(UniProts)
     currentUniProt = UniProts{i};
@@ -18,14 +18,8 @@ for i = 1:1:length(UniProts)
             value = GOinformation(currGOIDs{j});
             value{2} = value{2} + 1;
         else
-            url = strcat('http://amigo.geneontology.org/amigo/term/',currGOIDs{j});
-            tempData = urlread(url);
-            startI = findstr(tempData,'>Definition');
-            endI = findstr(tempData,'<em>');
-            roughData = tempData(startI:endI(2));
-            polishedData = roughData(49:length(roughData)-5);
-            annot = polishedData;
-            GOinformation(currGOIDs{j}) = {annot,1};
+            annot = allGODic(currGOIDs{j});
+            GOinformation(currGOIDs{j}) = {annot{1},1};
         end
     end
 end
