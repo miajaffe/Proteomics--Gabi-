@@ -1,13 +1,13 @@
 
 % By Emily Alsentzer
-clear all
-close all hidden
-clc
+clear all;
+close all hidden;
+clc;
 load('axes.mat');
 load('LetterMap.mat');
 load('normOverlordFinal_140523.mat');
 load('ProteinMap.mat');
-load('MusProt.mat')
+load('MusProt.mat');
 all_samples = [];
 all_labels = {};
 
@@ -18,15 +18,15 @@ all_labels = {};
 % that contains labels for each sample in the order that they are in teh
 % all_samples matrix. The all_labels matrix and the proteins matrix can be 
 % used for labeling the axes of any plots.
-for mouse_num = 1:3
-    for colonization = 1:3
-        for loc = 1:5
+for mouse_num = 1:3;
+    for colonization = 1:3;
+        for loc = 1:5;
             all_samples = [all_samples normOverlordFinal(:,mouse_num, colonization, loc)];
             label = strcat(axes{2}{mouse_num}, '_', axes{3}{colonization} , '_', axes{4}{loc});           
             all_labels = [all_labels label];
-        end
-    end
-end
+        end;
+    end;
+end;
             
 
 %% PCA 
@@ -50,9 +50,9 @@ for i = 1:number_of_samples;
     for j = 1:number_of_samples;
         covariance_matrix(i,j) = 1/(number_of_proteins - 1) * ...
             sum(diff_avg(:,i).*diff_avg(:,j));
-    end
-end
-figure
+    end;
+end;
+figure;
 imagesc(covariance_matrix);
 colorbar;
 
@@ -76,23 +76,23 @@ color_by_GutRegion = zeros(45, 3);
 
  for i = 1: numel(all_labels);
 
-    if strcmp(split_strings(i,3), 'cecum') % Color cecum Red
+    if strcmp(split_strings(i,3), 'cecum'); % Color cecum Red
     color_by_GutRegion(i,1) = 1; color_by_GutRegion(i,2) = 0; color_by_GutRegion(i,3) = 0;
 
-    elseif strcmp(split_strings(i,3), 'ileum') % Color ileum Green
+    elseif strcmp(split_strings(i,3), 'ileum'); % Color ileum Green
     color_by_GutRegion(i,1) = 0; color_by_GutRegion(i,2) = 1; color_by_GutRegion(i,3) = 0;
 
-    elseif strcmp(split_strings(i,3), 'jejunum') % Color jejunum Blue
+    elseif strcmp(split_strings(i,3), 'jejunum'); % Color jejunum Blue
     color_by_GutRegion(i,1) = 0; color_by_GutRegion(i,2) = 0; color_by_GutRegion(i,3) = 1;
 
-    elseif strcmp(split_strings(i,3), 'prox colon') % Color prox colon cyan
+    elseif strcmp(split_strings(i,3), 'prox colon'); % Color prox colon cyan
     color_by_GutRegion(i,1) = 0; color_by_GutRegion(i,2) = 1; color_by_GutRegion(i,3) = 1;
 
-    else strcmp(split_strings(i,3), 'Stomach') % Color Stomach magenta
+    else strcmp(split_strings(i,3), 'Stomach'); % Color Stomach magenta
     color_by_GutRegion(i,1) = 1; color_by_GutRegion(i,2) = 0; color_by_GutRegion(i,3) = 1;
     
-    end
- end
+    end;
+ end;
  
 % Colonization State
 
@@ -100,13 +100,13 @@ color_by_ColonizationState = zeros(45, 3);
 
  for i = 1: numel(all_labels);
 
-    if strcmp(split_strings(i,2), 'BT') % Color BT mice Red
+    if strcmp(split_strings(i,2), 'BT'); % Color BT mice Red
     color_by_ColonizationState(i,1) = 1; color_by_ColonizationState(i,2) = 0; color_by_ColonizationState(i,3) = 0;
 
-    elseif strcmp(split_strings(i,2), 'RF') % Color RF mice Green
+    elseif strcmp(split_strings(i,2), 'RF'); % Color RF mice Green
     color_by_ColonizationState(i,1) = 0; color_by_ColonizationState(i,2) = 1; color_by_ColonizationState(i,3) = 0;
 
-    else strcmp(split_strings(i,2), 'GF') % Color Germ Free mice Blue 
+    else strcmp(split_strings(i,2), 'GF'); % Color Germ Free mice Blue 
     color_by_ColonizationState(i,1) = 0; color_by_ColonizationState(i,2) = 0; color_by_ColonizationState(i,3) = 1;
     
     end
@@ -118,33 +118,33 @@ color_by_ColonizationState = zeros(45, 3);
 
 figure
 scatter3(eigenvectors(:,1), eigenvectors(:,2), eigenvectors(:,3), 100, color_by_GutRegion, 'filled');
-hold on
+hold on;
 title('Principal Component Analysis: Gut Region');
-xlabel(sprintf('PC1 = %.3i', explained(1,1)));
-ylabel(sprintf('PC2 = %.3i', explained(2,1)));
-zlabel(sprintf('PC3 = %.3i', explained(3,1)));
+xlabel(sprintf('PC1 = %.0f%%', explained(1,1)));
+ylabel(sprintf('PC2 = %.0f%%', explained(2,1)));
+zlabel(sprintf('PC3 = %.0f%%', explained(3,1)));
 [~, I] = unique(split_strings(:,3)); 
 I = length(split_strings(:,3)) - I(length(I):-1:1); 
 p = findobj(gca,'Type','Patch');
 legend(p(I), 'stomach', 'prox colon', 'jejunum', 'ileum', 'cecum');
-hold off
+hold off;
 
 %%
 
 % Plot PC1 vs PC2 vs PC3 for Colonization State
 
-figure
+figure;
 scatter3(eigenvectors(:,1), eigenvectors(:,2), eigenvectors(:,3), 100, color_by_ColonizationState, 'filled');
-hold on
+hold on;
 title('Principal Component Analysis: Colonization State');
-xlabel(sprintf('PC1 = %.3i', explained(1,1)));
-ylabel(sprintf('PC2 = %.3i', explained(2,1)));
-zlabel(sprintf('PC3 = %.3i', explained(3,1)));
+xlabel(sprintf('PC1 = %.0f%%', explained(1,1)));
+ylabel(sprintf('PC2 = %.0f%%', explained(2,1)));
+zlabel(sprintf('PC3 = %.0f%%', explained(3,1)));
 [~, I] = unique(split_strings(:,2)); 
 I = length(split_strings(:,2)) - I(length(I):-1:1); 
 p = findobj(gca,'Type','Patch');
 legend(p(I), 'BT', 'RF', 'GF');
-hold off
+hold off;
 
 
 %% 
@@ -158,7 +158,7 @@ hold off
 %%
 % PCA Visulization Tool
 % Note: I don't think this is very useful for us, but MATLAB has it
- mapcaplot(all_samples)
+ mapcaplot(all_samples);
  
 
  
@@ -178,7 +178,7 @@ hold off
 load('axes.mat');
 proteins = axes{1}'; %generates list of protein ids
 
-clustergram(all_samples, 'RowLabels', proteins, 'ColumnLabels', all_labels', 'DisplayRange', 0.0015, 'Symmetric', 'true', 'colormap', 'jet');
+clustergram(all_samples, 'RowLabels', proteins, 'ColumnLabels', all_labels', 'DisplayRange', 0.0015, 'Symmetric', 'true', 'colormap', 'winter');
 % colorbar
 % hold on
 % addTitle('Hierarchical Clustering of Proteins');
@@ -197,10 +197,10 @@ clustergram(all_samples, 'RowLabels', proteins, 'ColumnLabels', all_labels', 'Di
 corrDist = pdist(all_samples);
 clusterTree = linkage(corrDist, 'average');
 clusters=cluster(clusterTree, 'maxclust', 15); %15 comes from 3 colonization states * 5 locations
- for c = 1:15
+ for c = 1:15;
      subplot(3,5,c);
      plot(all_samples((clusters == c))');
-     axis tight
+     axis tight;
  end
  suptitle('Hierarchical Clustering of Profiles');
 
