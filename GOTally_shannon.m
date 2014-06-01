@@ -6,12 +6,13 @@
 % and saves this data to file.  The final output is a 1 x 3013 x 3 x 3 x 5
 % matrix, where 3013 corresponds to the number of GO IDs, and 3 3 5
 % correspond to the number of samples.  Note that this essentially converts
-% from the 876 non-decoy proteins to 3013 GO IDs.
+% from the 876 non-decoy proteins to 3013 GO IDs.  This script uses the
+% normOverlord_shannon file.
 clear all
 close all
 clc
 load('GOArray')
-load('normOverlordFinal');
+load('normOverlord_shannon');
 load('axes')
 GONum = {GOArray{:,3}};
 GOOccur = zeros(1,9999999);
@@ -75,31 +76,30 @@ for ii = 1:1:size(axes{1},2)
 end
 % Multiplies each GO vector (tallies of GO codes for each protein) by the
 % normalized values from the normalized OverlordMatrix.
-repproteinGOMat = repmat(proteinGOMatrix,1,1,3,3,5);
-for ii= 1:1:size(normOverlordFinal,1)
-    for iii = 1:1:size(normOverlordFinal,2)
-        for iv = 1:1:size(normOverlordFinal,3)
-            for ivi = 1:1:size(normOverlordFinal,4)
-                repproteinGOMat(ii,:,iii,iv,ivi) = normOverlordFinal(ii,iii,iv,ivi) * repproteinGOMat(ii,:,iii,iv,ivi);
+repproteinGOMat_shannon = repmat(proteinGOMatrix,1,1,3,3,5);
+
+for ii= 1:1:size(normOverlord_shannon,1)
+    for iii = 1:1:size(normOverlord_shannon,2)
+        for iv = 1:1:size(normOverlord_shannon,3)
+            for ivi = 1:1:size(normOverlord_shannon,4)
+                repproteinGOMat_shannon(ii,:,iii,iv,ivi) = normOverlord_shannon(ii,iii,iv,ivi) * repproteinGOMat_shannon(ii,:,iii,iv,ivi);
             end
         end
     end
 end
+
 % Sums the normalized GO tallies across all proteins, so there is now a
 % vector of GO tallies for each sample (sample defined as mouse ID,
 % colonization state, and location).
-GOenrichMatTemp = sum(repproteinGOMat,1);
-GOenrichMat = zeros(size(GOenrichMatTemp,2),size(GOenrichMatTemp,3),size(GOenrichMatTemp,4),size(GOenrichMatTemp,5));
+GOenrichMatTemp_shannon = sum(repproteinGOMat_shannon,1);
+GOenrichMat_shannon = zeros(size(GOenrichMatTemp_shannon,2),size(GOenrichMatTemp_shannon,3),size(GOenrichMatTemp_shannon,4),size(GOenrichMatTemp_shannon,5));
 % Reshapes to be a 4D matrix rather than a 5D
-for ii = 1:1:size(GOenrichMatTemp,3)
-    for iii = 1:1:size(GOenrichMatTemp,4)
-        for iv = 1:1:size(GOenrichMatTemp,5)
-            GOenrichMat(:,ii,iii,iv) = GOenrichMatTemp(1,:,ii,iii,iv)';
+
+for ii = 1:1:size(GOenrichMatTemp_shannon,3)
+    for iii = 1:1:size(GOenrichMatTemp_shannon,4)
+        for iv = 1:1:size(GOenrichMatTemp_shannon,5)
+            GOenrichMat_shannon(:,ii,iii,iv) = GOenrichMatTemp_shannon(1,:,ii,iii,iv)';
         end
     end
 end
-save('GOenrichMat','GOenrichMat')
-save('GOtoIndexConverter','GOtoIndexConverter')
-save('GOtoIndexConverterStr','GOtoIndexConverterStr')
-save('IndextoGOConverter','IndextoGOConverter')
-save('IndextoGOConverterStr','IndextoGOConverterStr')
+save('GOenrichMat_shannon','GOenrichMat_shannon')

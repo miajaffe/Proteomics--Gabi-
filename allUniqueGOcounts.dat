@@ -1,0 +1,882 @@
+title 	 count
+
+
+extracellularregion 	 19
+
+
+extracellularspace 	 18
+
+
+biological_process 	 17
+
+
+cellular_component 	 15
+
+
+molecular_function 	 14
+
+
+serine-typeendopeptidaseactivity 	 10
+
+
+proteinbinding 	 8
+
+
+cytoplasm 	 7
+
+
+calciumionbinding 	 6
+
+
+zincionbinding 	 6
+
+
+proteolysis 	 5
+
+
+cytosol 	 4
+
+
+digestion 	 4
+
+
+secretorygranule 	 4
+
+
+DNAbinding 	 3
+
+
+extracellularvesicularexosome 	 3
+
+
+integralcomponentofmembrane 	 3
+
+
+lipidbinding 	 3
+
+
+lipidcatabolicprocess 	 3
+
+
+metalionbinding 	 3
+
+
+odorantbinding 	 3
+
+
+plasmamembrane 	 3
+
+
+transporteractivity 	 3
+
+
+Wntsignalingpathway 	 2
+
+
+actinbinding 	 2
+
+
+apicalpartofcell 	 2
+
+
+apicalplasmamembrane 	 2
+
+
+calcium-mediatedsignaling 	 2
+
+
+carbonatedehydrataseactivity 	 2
+
+
+celldifferentiation 	 2
+
+
+cellsurface 	 2
+
+
+centrosome 	 2
+
+
+growthcone 	 2
+
+
+metallocarboxypeptidaseactivity 	 2
+
+
+metallopeptidaseactivity 	 2
+
+
+microvillus 	 2
+
+
+mitochondrion 	 2
+
+
+nucleolus 	 2
+
+
+nucleoplasm 	 2
+
+
+nucleosome 	 2
+
+
+nucleosomeassembly 	 2
+
+
+one-carbonmetabolicprocess 	 2
+
+
+oxygenbinding 	 2
+
+
+peptidaseactivity 	 2
+
+
+positiveregulationofcellproliferation 	 2
+
+
+proteinaceousextracellularmatrix 	 2
+
+
+proteincomplex 	 2
+
+
+proteinheterodimerizationactivity 	 2
+
+
+proteintransport 	 2
+
+
+responsetonutrient 	 2
+
+
+responsetopeptidehormone 	 2
+
+
+responsetozincion 	 2
+
+
+stressfiber 	 2
+
+
+transport 	 2
+
+
+triglyceridelipaseactivity 	 2
+
+
+zymogengranulemembrane 	 2
+
+
+ATPbinding 	 1
+
+
+ATPcatabolicprocess 	 1
+
+
+CXCR4chemokinereceptorbinding 	 1
+
+
+Golgilumen 	 1
+
+
+N-terminalmyristoylationdomainbinding 	 1
+
+
+PDZdomainbinding 	 1
+
+
+actin-dependentATPaseactivity 	 1
+
+
+actincytoskeleton 	 1
+
+
+actincytoskeletonorganization 	 1
+
+
+actinfilament 	 1
+
+
+activationofadenylatecyclaseactivity 	 1
+
+
+adenylatecyclase-activatingdopaminereceptorsignalingpathway 	 1
+
+
+adenylatecyclasebinding 	 1
+
+
+aminopeptidaseactivity 	 1
+
+
+angiogenesis 	 1
+
+
+angiotensin-activatedsignalingpathway 	 1
+
+
+angiotensin-mediateddrinkingbehavior 	 1
+
+
+apicallaminaofhyalinelayer 	 1
+
+
+apoptoticprocess 	 1
+
+
+aspartic-typeendopeptidaseactivity 	 1
+
+
+axon 	 1
+
+
+basementmembrane 	 1
+
+
+basolateralplasmamembrane 	 1
+
+
+beta-2adrenergicreceptorbinding 	 1
+
+
+beta-cateninbinding 	 1
+
+
+bileacidsecretion 	 1
+
+
+blastocystdevelopment 	 1
+
+
+brushbordermembrane 	 1
+
+
+cAMP-mediatedsignaling 	 1
+
+
+calcium-dependentphospholipaseA2activity 	 1
+
+
+calcium-dependentproteinbinding 	 1
+
+
+calciumchannelcomplex 	 1
+
+
+carbondioxidetransport 	 1
+
+
+carboxypeptidaseactivity 	 1
+
+
+cellgrowth 	 1
+
+
+cellmaturation 	 1
+
+
+cellularphosphateionhomeostasis 	 1
+
+
+cellularproteinlocalization 	 1
+
+
+cellularresponsetoretinoicacid 	 1
+
+
+cellularresponsetostarvation 	 1
+
+
+chaperonebinding 	 1
+
+
+chemokine-mediatedsignalingpathway 	 1
+
+
+chitinaseactivity 	 1
+
+
+chitinbinding 	 1
+
+
+chitincatabolicprocess 	 1
+
+
+chloridechannelregulatoractivity 	 1
+
+
+chondrocytedifferentiation 	 1
+
+
+cleavagefurrow 	 1
+
+
+collagencatabolicprocess 	 1
+
+
+corticalcytoskeleton 	 1
+
+
+cysteine-typeendopeptidaseinhibitoractivity 	 1
+
+
+cytoplasmicmembrane-boundedvesiclelumen 	 1
+
+
+cytosoliclargeribosomalsubunit 	 1
+
+
+detectionofcalciumion 	 1
+
+
+digestivesystemdevelopment 	 1
+
+
+dopaminereceptorbinding 	 1
+
+
+drugbinding 	 1
+
+
+endomembranesystem 	 1
+
+
+endopeptidaseactivity 	 1
+
+
+endoplasmicreticulum-Golgiintermediatecompartment 	 1
+
+
+enzymeactivatoractivity 	 1
+
+
+enzymebinding 	 1
+
+
+establishmentofskinbarrier 	 1
+
+
+exocrinepancreasdevelopment 	 1
+
+
+externalsideofplasmamembrane 	 1
+
+
+extracellularmatrix 	 1
+
+
+extrinsiccomponentofmembrane 	 1
+
+
+fattyacidbinding 	 1
+
+
+fattyacidbiosyntheticprocess 	 1
+
+
+filamentousactin 	 1
+
+
+filopodium 	 1
+
+
+gamma-glutamyl-peptidaseactivity 	 1
+
+
+glutaminemetabolicprocess 	 1
+
+
+glutathionetransport 	 1
+
+
+glycoproteinbinding 	 1
+
+
+growthfactoractivity 	 1
+
+
+growthfactorreceptorbinding 	 1
+
+
+hemebinding 	 1
+
+
+hemoglobincomplex 	 1
+
+
+hemolysisbysymbiontofhosterythrocytes 	 1
+
+
+immunesystemprocess 	 1
+
+
+inflammatoryresponse 	 1
+
+
+innateimmuneresponse 	 1
+
+
+innercellmasscellproliferation 	 1
+
+
+intestinalcholesterolabsorption 	 1
+
+
+intracellular 	 1
+
+
+intracellularmembrane-boundedorganelle 	 1
+
+
+ionchannelbinding 	 1
+
+
+ironionbinding 	 1
+
+
+keratinfilament 	 1
+
+
+kidneydevelopment 	 1
+
+
+lysosomalmembrane 	 1
+
+
+lysosome 	 1
+
+
+maintenanceofmitochondrionlocation 	 1
+
+
+malatedehydrogenaseactivity 	 1
+
+
+malatemetabolicprocess 	 1
+
+
+melanosome 	 1
+
+
+membrane 	 1
+
+
+membraneraft 	 1
+
+
+metabolicprocess 	 1
+
+
+microvillusassembly 	 1
+
+
+microvillusmembrane 	 1
+
+
+morphogenesisofanepithelium 	 1
+
+
+motoractivity 	 1
+
+
+multicellularorganismallipidcatabolicprocess 	 1
+
+
+multicellularorganismgrowth 	 1
+
+
+musclecontraction 	 1
+
+
+musclefilamentsliding 	 1
+
+
+myelinsheath 	 1
+
+
+myosincomplex 	 1
+
+
+negativeregulationofERK1andERK2cascade 	 1
+
+
+negativeregulationofapoptoticprocess 	 1
+
+
+negativeregulationofcellmigration 	 1
+
+
+negativeregulationofcellmotility 	 1
+
+
+negativeregulationofcellproliferation 	 1
+
+
+negativeregulationofendopeptidaseactivity 	 1
+
+
+negativeregulationofgastricacidsecretion 	 1
+
+
+negativeregulationofinflammatoryresponse 	 1
+
+
+negativeregulationofmacrophageactivation 	 1
+
+
+negativeregulationofmegakaryocytedifferentiation 	 1
+
+
+negativeregulationofphosphatidylinositol3-kinasesignaling 	 1
+
+
+negativeregulationofplatelet-derivedgrowthfactorreceptorsignalingpathway 	 1
+
+
+negativeregulationofproteinkinaseBsignaling 	 1
+
+
+negativeregulationofsodium:protonantiporteractivity 	 1
+
+
+negativeregulationofsodiumiontransport 	 1
+
+
+negativeregulationoftranscriptionfromRNApolymeraseIIpromoter 	 1
+
+
+neuronprojection 	 1
+
+
+nitric-oxidesynthasebinding 	 1
+
+
+nitric-oxidesynthaseregulatoractivity 	 1
+
+
+nucleus 	 1
+
+
+odontogenesisofdentin-containingtooth 	 1
+
+
+oxygentransporteractivity 	 1
+
+
+pancreasmorphogenesis 	 1
+
+
+peptidehormonebinding 	 1
+
+
+peptidyl-dipeptidaseactivity 	 1
+
+
+phosphatasebinding 	 1
+
+
+phosphatidylcholinemetabolicprocess 	 1
+
+
+phosphatidylinositol3-kinasebinding 	 1
+
+
+phospholipaseA2activity 	 1
+
+
+phospholipaseC-activatingdopaminereceptorsignalingpathway 	 1
+
+
+phospholipasebinding 	 1
+
+
+phospholipidcatabolicprocess 	 1
+
+
+podosome 	 1
+
+
+polysaccharidecatabolicprocess 	 1
+
+
+positiveregulationofDNAreplication 	 1
+
+
+positiveregulationofERK1andERK2cascade 	 1
+
+
+positiveregulationofboneresorption 	 1
+
+
+positiveregulationofcelldivision 	 1
+
+
+positiveregulationofcellularpHreduction 	 1
+
+
+positiveregulationofchemokinesecretion 	 1
+
+
+positiveregulationofcircadiansleep/wakecycle,non-REMsleep 	 1
+
+
+positiveregulationofcyclic-nucleotidephosphodiesteraseactivity 	 1
+
+
+positiveregulationofdipeptidetransmembranetransport 	 1
+
+
+positiveregulationofepithelialcelldifferentiation 	 1
+
+
+positiveregulationofintrinsicapoptoticsignalingpathway 	 1
+
+
+positiveregulationofnitric-oxidesynthaseactivity 	 1
+
+
+positiveregulationofosteoclastdifferentiation 	 1
+
+
+positiveregulationofphosphoproteinphosphataseactivity 	 1
+
+
+positiveregulationofproteindephosphorylation 	 1
+
+
+positiveregulationofryanodine-sensitivecalcium-releasechannelactivity 	 1
+
+
+positiveregulationoftranscriptionfromRNApolymeraseIIpromoter 	 1
+
+
+post-embryonicdevelopment 	 1
+
+
+productionofmolecularmediatorinvolvedininflammatoryresponse 	 1
+
+
+proteincomplexbinding 	 1
+
+
+proteincomplexscaffold 	 1
+
+
+proteindomainspecificbinding 	 1
+
+
+proteinphosphataseactivatoractivity 	 1
+
+
+proteinself-association 	 1
+
+
+pyridoxalphosphatebinding 	 1
+
+
+receptor-mediatedvirionattachmenttohostcell 	 1
+
+
+receptorbinding 	 1
+
+
+receptorbiosyntheticprocess 	 1
+
+
+regulationofaniontransport 	 1
+
+
+regulationofcardiacmusclecontraction 	 1
+
+
+regulationofcelldifferentiation 	 1
+
+
+regulationofcellmigration 	 1
+
+
+regulationofcellproliferation 	 1
+
+
+regulationofcytokinesis 	 1
+
+
+regulationofexcretion 	 1
+
+
+regulationofheartrate 	 1
+
+
+regulationofhighvoltage-gatedcalciumchannelactivity 	 1
+
+
+regulationofimmunesystemprocess 	 1
+
+
+regulationofintracellularpH 	 1
+
+
+regulationofproteinkinaseactivity 	 1
+
+
+regulationofproteolysis 	 1
+
+
+regulationofreleaseofsequesteredcalciumionintocytosolbysarcoplasmicreticulum 	 1
+
+
+renalabsorption 	 1
+
+
+renalphosphateionabsorption 	 1
+
+
+renalsodiumiontransport 	 1
+
+
+responsetoamphetamine 	 1
+
+
+responsetocaffeine 	 1
+
+
+responsetocorticosterone 	 1
+
+
+responsetocytokine 	 1
+
+
+responsetodrug 	 1
+
+
+responsetoestrogen 	 1
+
+
+responsetoethanol 	 1
+
+
+responsetoextracellularstimulus 	 1
+
+
+responsetoinsulin 	 1
+
+
+responsetolithiumion 	 1
+
+
+responsetomechanicalstimulus 	 1
+
+
+responsetomercuryion 	 1
+
+
+responsetonicotine 	 1
+
+
+responsetoorganicsubstance 	 1
+
+
+responsetopH 	 1
+
+
+responsetoplatinumion 	 1
+
+
+responsetoradiation 	 1
+
+
+responsetosteroidhormone 	 1
+
+
+ruffle 	 1
+
+
+sarcomere 	 1
+
+
+scavengerreceptoractivity 	 1
+
+
+secretion 	 1
+
+
+serine-typeendopeptidaseinhibitoractivity 	 1
+
+
+serinehydrolaseactivity 	 1
+
+
+skeletalmusclecontraction 	 1
+
+
+skeletalmusclefiberadaptation 	 1
+
+
+skeletalmusclefiberdevelopment 	 1
+
+
+skeletalmusclethinfilamentassembly 	 1
+
+
+skeletalmuscletissuedevelopment 	 1
+
+
+spermmidpiece 	 1
+
+
+spindlemicrotubule 	 1
+
+
+spindlepole 	 1
+
+
+steroidbinding 	 1
+
+
+striatedmusclethinfilament 	 1
+
+
+structuralconstituentofmuscle 	 1
+
+
+structuralconstituentofribosome 	 1
+
+
+structuralmoleculeactivity 	 1
+
+
+thioesterasebinding 	 1
+
+
+titinbinding 	 1
+
+
+tonguemorphogenesis 	 1
+
+
+toxicsubstancebinding 	 1
+
+
+translationalelongation 	 1
+
+
+transportvesiclemembrane 	 1
+
+
+troponincomplex 	 1
+
+
+type3metabotropicglutamatereceptorbinding 	 1
+
+
+unconventionalmyosincomplex 	 1
+
+
+virusreceptoractivity 	 1
+
+
+zymogenbinding 	 1
+
+

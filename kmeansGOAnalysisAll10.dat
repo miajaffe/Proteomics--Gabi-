@@ -1,0 +1,51 @@
+title1-# 	 title2-# 	 title3-# 	 title4-# 	 title5-# 	 title6-# 	 title7-# 	 title8-# 	 title9-# 	 title10-# 	
+
+
+1 serine-typeendopeptidaseactivity 4 	 extracellularspace 3 	 cellular_component 2 	 polysaccharidecatabolicprocess 1 	 virusreceptoractivity 1 	 glycoproteinbinding 1 	 immunesystemprocess 1 	 productionofmolecularmediatorinvolvedininflammatoryresponse 1 	 angiotensin-mediateddrinkingbehavior 1 	 endopeptidaseactivity 1 	
+
+
+2 serine-typeendopeptidaseactivity 2 	 extracellularspace 2 	 spindlepole 1 	 responsetoamphetamine 1 	 regulationofheartrate 1 	 metallocarboxypeptidaseactivity 1 	 calciumionbinding 1 	 detectionofcalciumion 1 	 proteinbinding 1 	 nucleus 1 	
+
+
+3 extracellularregion 4 	 serine-typeendopeptidaseactivity 3 	 proteolysis 2 	 lipidcatabolicprocess 2 	 metalionbinding 2 	 negativeregulationoftranscriptionfromRNApolymeraseIIpromoter 1 	 metallocarboxypeptidaseactivity 1 	 triglyceridelipaseactivity 1 	 cellular_component 1 	 extracellularspace 1 	
+
+
+4 biological_process 10 	 extracellularregion 7 	 molecular_function 6 	 cellular_component 6 	 extracellularspace 5 	 calciumionbinding 3 	 proteinbinding 3 	 lipidbinding 3 	 stressfiber 2 	 actinbinding 2 	
+
+
+5 molecular_function 2 	 extracellularregion 2 	 extracellularspace 2 	 regulationofimmunesystemprocess 1 	 carbonatedehydrataseactivity 1 	 serine-typeendopeptidaseinhibitoractivity 1 	 proteinbinding 1 	 proteinaceousextracellularmatrix 1 	 cytoplasm 1 	 Golgilumen 1 	
+
+
+6 ruffle 1 	 renalsodiumiontransport 1 	 molecular_function 1 	 serine-typeendopeptidaseactivity 1 	 proteinbinding 1 	 proteinaceousextracellularmatrix 1 	 extracellularspace 1 	 cytoplasm 1 	 Golgilumen 1 	 centrosome 1 	
+
+
+7 serine-typeendopeptidaseactivity 2 	 cellular_component 2 	 zincionbinding 2 	 angiogenesis 1 	 molecular_function 1 	 carbonatedehydrataseactivity 1 	 aminopeptidaseactivity 1 	 extracellularspace 1 	 cytoplasm 1 	 lysosomalmembrane 1 	
+
+
+8 extracellularspace 3 	 serine-typeendopeptidaseactivity 2 	 polysaccharidecatabolicprocess 1 	 virusreceptoractivity 1 	 glycoproteinbinding 1 	 immunesystemprocess 1 	 productionofmolecularmediatorinvolvedininflammatoryresponse 1 	 angiotensin-mediateddrinkingbehavior 1 	 endopeptidaseactivity 1 	 carboxypeptidaseactivity 1 	
+
+
+9 extracellularregion 11 	 biological_process 9 	 molecular_function 7 	 cellular_component 7 	 extracellularspace 7 	 proteinbinding 4 	 cytoplasm 4 	 transporteractivity 3 	 calciumionbinding 3 	 odorantbinding 3 	
+
+
+10 serine-typeendopeptidaseactivity 5 	 extracellularregion 4 	 proteolysis 3 	 metallocarboxypeptidaseactivity 2 	 extracellularspace 2 	 digestion 2 	 peptidaseactivity 2 	 zincionbinding 2 	 lipidcatabolicprocess 2 	 metalionbinding 2 	
+
+
+11 serine-typeendopeptidaseactivity 3 	 extracellularspace 3 	 biological_process 2 	 polysaccharidecatabolicprocess 1 	 virusreceptoractivity 1 	 glycoproteinbinding 1 	 immunesystemprocess 1 	 productionofmolecularmediatorinvolvedininflammatoryresponse 1 	 angiotensin-mediateddrinkingbehavior 1 	 molecular_function 1 	
+
+
+12 biological_process 2 	 chondrocytedifferentiation 1 	 molecular_function 1 	 cysteine-typeendopeptidaseinhibitoractivity 1 	 cellular_component 1 	 extracellularregion 1 	 extracellularspace 1 	 cytosol 1 	 lipidbinding 1 	 secretorygranule 1 	
+
+
+13 serine-typeendopeptidaseactivity 4 	 extracellularregion 3 	 metallocarboxypeptidaseactivity 2 	 proteolysis 2 	 zincionbinding 2 	 metalionbinding 2 	 negativeregulationoftranscriptionfromRNApolymeraseIIpromoter 1 	 triglyceridelipaseactivity 1 	 cellular_component 1 	 extracellularspace 1 	
+
+
+14 serine-typeendopeptidaseactivity 2 	 regulationofimmunesystemprocess 1 	 proteinbinding 1 	 cellular_component 1 	 extracellularregion 1 	 extracellularspace 1 	 proteolysis 1 	 digestion 1 	 peptidaseactivity 1 	 apicalplasmamembrane 1 	
+
+
+15 extracellularregion 3 	 biological_process 3 	 stressfiber 2 	 molecular_function 2 	 actinbinding 2 	 proteinbinding 2 	 cellular_component 2 	 cytoplasm 2 	 nucleosome 1 	 podosome 1 	
+
+
+16 extracellularregion 2 	 extracellularspace 2 	 blastocystdevelopment 1 	 innercellmasscellproliferation 1 	 molecular_function 1 	 scavengerreceptoractivity 1 	 oxygentransporteractivity 1 	 ironionbinding 1 	 proteinbinding 1 	 proteinaceousextracellularmatrix 1 	
+
+

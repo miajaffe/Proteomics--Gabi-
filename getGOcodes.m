@@ -17,6 +17,7 @@ for i = 1:1:length(UniProts)
             % Value is a 1x2 cell array with tally in the 2nd cell
             value = GOinformation(currGOIDs{j});
             value{2} = value{2} + 1;
+            GOinformation(currGOIDs{j}) = {value{1},value{2}};
         else
             annot = allGODic(currGOIDs{j});
             GOinformation(currGOIDs{j}) = {annot{1},1};
