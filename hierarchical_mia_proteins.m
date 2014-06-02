@@ -1,14 +1,30 @@
-%% Hierarchical Clustering
-% The following code creates a 2D matrix of proteins vs samples and creates
-% a clustergram to visualize hierarchical clustering of the data.
-
+%% Redo hierarchical with Mia's proteins only
 clear all
 close all hidden
 clc
 load('axes140523.mat');
 load('normOverlordFinal_140523.mat');
+load('mia_clustering_work_with_final_norm.mat');
 
 normOverlord = normOverlordFinal; 
+%%
+% In the mat file "mia_clustering_work_with_final_norm.mat", the following 
+% three variables contain the indices relative in the OverlordMatrixFinal 
+% of the proteins contained in the kmeans clusters:
+% 'i_bt_hi'
+% 'i_cv_hi'
+% 'i_gf_hi'
+A = [1:843]
+
+bt_indices = i_bt_hi;
+gf_indices = i_gf_hi;
+conv_indices = i_cv_hi;
+total_indices = [bt_indices; gf_indices; conv_indices];
+final_indices = unique(total_indices);
+%% if the indices are the high abundant proteins
+reduced_overlord = normOverlord(final_indices,:,:,:);
+
+%%
 all_samples = [];
 all_labels = {};
 proteins = axes{1}'; %generates list of protein ids
@@ -23,7 +39,7 @@ proteins = axes{1}'; %generates list of protein ids
 for mouse_num = 1:3
     for colonization = 1:3
         for loc = 1:5
-            all_samples = [all_samples normOverlord(:,mouse_num, colonization, loc)];
+            all_samples = [all_samples reduced_overlord(:,mouse_num, colonization, loc)];
             label = strcat(axes{2}{mouse_num}, '_', axes{3}{colonization} , '_', axes{4}{loc});           
             all_labels = [all_labels label];
         end
@@ -40,39 +56,23 @@ ylabel('Normalized Protein Abundance')
 median = median(all_samples) % median is 0 for all except col 32 where median = 0.1402
 percentages = prctile(all_samples, [25 50 75 90 95]); %percentages for each col
 
-reshaped_samples = reshape(all_samples, 37935,1);
+reshape_size = length(all_samples(:,1)) * length(all_samples(1,:));
+reshaped_samples = reshape(all_samples, reshape_size,1);
 percentages = prctile(reshaped_samples, [25 50 75 90 95])
 % % % 50% = 0 75% = 0.0002  90% = 0.0015   95% = 0.0043
 percentages2 = prctile(reshaped_samples, [81 82 83 84 85])
 % 
 
-%%Should we remove proteins with 0 values?!
-
            
 %%
-% The following code is still a work in progress.
-
 % This creates a clustergram of the data where proteins are on the y axis
 % and the samples are on the x axis. The goal is to group samples into
 % individual clusters. 
 
 % 10% of the data is above the cutoff.
-cluster = clustergram(all_samples, 'ColumnLabels', all_labels', 'DisplayRange', 0.0012, 'Symmetric', 'true', 'Colormap', winter);
+cluster = clustergram(all_samples, 'ColumnLabels', all_labels', 'DisplayRange', 0.0271, 'Symmetric', 'true', 'Colormap', winter);
 %cluster = clustergram(all_samples, 'RowLabels', proteins, 'ColumnLabels', all_labels', 'DisplayRange', 0.0015, 'Symmetric', 'true', 'Colormap', winter);
 
-% clustergram(all_samples, 'RowPDist', 'spearman');
-%%
-% The following code is very similar to the clustergram above, but it takes
-% a manual approach. It was adapted from Tiffany's code from class.
-% Each cluster is graphed on a separate plot to visualize the number of 
-% samples in each cluster. 
-corrDist = pdist(all_samples);
-clusterTree = linkage(corrDist, 'average');
-clusters=cluster(clusterTree, 'maxclust', 5); 
- for c = 1:5
-     subplot(5,1,c);
-     plot(all_samples((clusters == c))')
-     axis tight
- end
- suptitle('Hierarchical Clustering of Profiles');
+
+
 

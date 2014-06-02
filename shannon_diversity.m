@@ -2,9 +2,10 @@
 clear all
 close all hidden
 clc
-load('MusProt.mat');
 load('axes140523.mat');
 load('normOverlord_shannon.mat')
+load('normOverlordFinal_140523.mat');
+
 normOverlord = normOverlord_shannon * 1000;
 %%
 all_samples = [];
@@ -43,9 +44,34 @@ coloniz_3  = mean(reshape1([3 6 9],:));
 sem_coloniz_3 = std(reshape1([3 6 9],:))./sqrt(3);
 sem_matrix = [sem_coloniz_1' sem_coloniz_2' sem_coloniz_3'];
 matrix_for_bar_graph = [coloniz_1' coloniz_2' coloniz_3']; %5 by 3 matrix where 5 is locations and 3 is the colonization states
+
+%% t-tests
+GF_cecum = reshape1([1 4 7],4);
+GF_prox_colon= reshape1([1 4 7],5);
+[H, P] = ttest(GF_cecum, GF_prox_colon);
+[P_rank, H_rank] = ranksum(GF_cecum, GF_prox_colon);
+
+BT_cecum = reshape1([2 5 8],4);
+BT_prox_colon= reshape1([2 5 8],5);
+[H2, P2] = ttest(BT_cecum, BT_prox_colon);
+[P2_rank, H2_rank] = ranksum(BT_cecum, BT_prox_colon);
+
+%% anova - cecum
+anova_matrix_cecum = [reshape1([1 4 7],4) reshape1([2 5 8],4) reshape1([3 6 9],4)];
+[p_anova, table, stats] = anova1(anova_matrix_cecum);
+figure
+sig_cecum = multcompare(stats)
+%% anova - prox colon
+anova_matrix_colon = [reshape1([1 4 7],5) reshape1([2 5 8],5) reshape1([3 6 9],5)];
+[p_anova2, table2, stats2] = anova1(anova_matrix_colon);
+figure
+sig_colon = multcompare(stats2)
+
 %%
 colormap('jet')
-barweb(matrix_for_bar_graph, sem_matrix);
+figure
+bar_graph = barweb(matrix_for_bar_graph, sem_matrix);
+% set(bar_graph,'FaceColor','r');
 legend('Germ Free', 'B. Theta', 'Conventional')
 title('Shannon Diversity of Samples')
 ylabel('Shannon-Weiner Index')

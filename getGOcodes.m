@@ -6,6 +6,8 @@
 % within the list of UniProt IDs in the 2nd cell.  For example: key =
 % GO:99999999, value = {'unknown function',2}, given that two proteins have
 % the GO ID GO:99999999.  Also requires allGODic.
+
+%Must load GOArray, axes, allGODic
 function [GOinformation] = getGOcodes(UniProts,GOArray,axes,allGODic)
 GOinformation = containers.Map();
 for i = 1:1:length(UniProts)
