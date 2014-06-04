@@ -20,6 +20,8 @@ for mouse_num = 1:3
         end
     end
 end
+
+
 %%
 % mouse1 coloniz 1 loc 1-5
 % mouse1 coloniz 2 loc 1-5
@@ -69,7 +71,7 @@ sig_colon = multcompare(stats2)
 
 %%
 colormap('jet')
-figure
+subplot(2,1,1)
 bar_graph = barweb(matrix_for_bar_graph, sem_matrix);
 % set(bar_graph,'FaceColor','r');
 legend('Germ Free', 'B. Theta', 'Conventional')
@@ -77,6 +79,40 @@ title('Shannon Diversity of Samples')
 ylabel('Shannon-Weiner Index')
 
 
+%%
 
+%%calculate the number of unique proteins in each sample
+protein_num= zeros(45,1);
+for sample = 1:45
+   non_zero_indices = find(all_samples(:,sample));
+   prot_num(sample) = length(non_zero_indices);
+end
+prot_num_reshaped = reshape(prot_num, 5,9)';
+prot_num_reshaped = [prot_num_reshaped(:,5) prot_num_reshaped(:,3) prot_num_reshaped(:,2) prot_num_reshaped(:,1) prot_num_reshaped(:,4)]; %put in order of GI tract
+coloniz_1_prot_num  = mean(prot_num_reshaped([1 4 7],:)); %takes average of replicates
+sem_coloniz_1_prot = std(prot_num_reshaped([1 4 7],:))./sqrt(3);
+coloniz_2_prot_num  = mean(prot_num_reshaped([2 5 8],:)); %takes average of replicates
+sem_coloniz_2_prot = std(prot_num_reshaped([2 5 8],:))./sqrt(3);
+coloniz_3_prot_num  = mean(prot_num_reshaped([3 6 9],:)); %takes average of replicates
+sem_coloniz_3_prot = std(prot_num_reshaped([3 6 9],:))./sqrt(3);
+
+sem_matrix_prot = [sem_coloniz_1_prot' sem_coloniz_2_prot' sem_coloniz_3_prot'];
+protein_num_matrix = [coloniz_1_prot_num' coloniz_2_prot_num' coloniz_3_prot_num'];%5 by 3 matrix where 5 is locations and 3 is the colonization states
+
+subplot(2,1,2)
+bar_graph = barweb(protein_num_matrix, sem_matrix_prot);
+legend('Germ Free', 'B. Theta', 'Conventional')
+ylabel('Unique Proteins Identified') 
+
+%% anova - cecum - number proteins - GF has significantly more proteins than conventional
+anova_cecum_nprot = [prot_num_reshaped([1 4 7],4) prot_num_reshaped([2 5 8],4) prot_num_reshaped([3 6 9],4)];
+[p_anova3, table3, stats3] = anova1(anova_cecum_nprot);
+figure
+sig_cecum_nprot = multcompare(stats3)
+%% anova - prox colon - number proteins - so so close to GF having significantly more proteins
+anova_colon_nprot = [prot_num_reshaped([1 4 7],5) prot_num_reshaped([2 5 8],5) prot_num_reshaped([3 6 9],5)];
+[p_anova4, table4, stats4] = anova1(anova_colon_nprot);
+figure
+sig_colon_nprot = multcompare(stats4)
 
     
