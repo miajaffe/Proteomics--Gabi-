@@ -98,17 +98,18 @@ color_by_ColonizationState = zeros(45, 3);
 
  for i = 1: numel(all_labels);
 
-    if strcmp(split_strings(i,2), 'BT'); % Color BT mice Red
-    color_by_ColonizationState(i,1) = 1; color_by_ColonizationState(i,2) = 0; color_by_ColonizationState(i,3) = 0;
+    if strcmp(split_strings(i,2), 'BT'); % Color BT mice Green
+    color_by_ColonizationState(i,1) = .2; color_by_ColonizationState(i,2) = 1; color_by_ColonizationState(i,3) = .2;
 
-    elseif strcmp(split_strings(i,2), 'RF'); % Color RF mice Green
-    color_by_ColonizationState(i,1) = 0; color_by_ColonizationState(i,2) = 1; color_by_ColonizationState(i,3) = 0;
+    elseif strcmp(split_strings(i,2), 'RF'); % Color RF mice Red
+    color_by_ColonizationState(i,1) = 1; color_by_ColonizationState(i,2) = 0; color_by_ColonizationState(i,3) = .3;
 
     else strcmp(split_strings(i,2), 'GF'); % Color Germ Free mice Blue 
-    color_by_ColonizationState(i,1) = 0; color_by_ColonizationState(i,2) = 0; color_by_ColonizationState(i,3) = 1;
+    color_by_ColonizationState(i,1) = .3; color_by_ColonizationState(i,2) = .5; color_by_ColonizationState(i,3) = 1;
     
     end
  end
+
  
 %%
 
@@ -117,15 +118,47 @@ color_by_ColonizationState = zeros(45, 3);
 figure
 scatter3(eigenvectors(:,1), eigenvectors(:,2), eigenvectors(:,3), 100, color_by_GutRegion, 'filled');
 hold on
-title('Principal Component Analysis: Gut Region');
-xlabel(sprintf('PC1 = %.3i', explained(1,1)));
-ylabel(sprintf('PC2 = %.3i', explained(2,1)));
-zlabel(sprintf('PC3 = %.3i', explained(3,1)));
+%title('GO Code Principal Component Analysis: Gut Region');
+xlabel(sprintf('PC1 = %.0f%%', explained(1,1)));
+ylabel(sprintf('PC2 = %.0f%%', explained(2,1)));
+zlabel(sprintf('PC3 = %.0f%%', explained(3,1)));
 [~, I] = unique(split_strings(:,3)); 
 I = length(split_strings(:,3)) - I(length(I):-1:1); 
 p = findobj(gca,'Type','Patch');
 legend(p(I), 'stomach', 'prox colon', 'jejunum', 'ileum', 'cecum');
 hold off
+
+%%
+
+% Plot PC1 vs PC2 for Gut Region
+
+figure
+scatter(eigenvectors(:,1), eigenvectors(:,2), 100, color_by_GutRegion, 'filled');
+hold on;
+%title('Principal Component Analysis: Gut Location');
+xlabel(sprintf('PC1 = %.0f%%', explained(1,1)));
+ylabel(sprintf('PC2 = %.0f%%', explained(2,1)));
+[~, I] = unique(split_strings(:,3)); 
+I = length(split_strings(:,3)) - I(length(I):-1:1); 
+p = findobj(gca,'Type','Patch');
+legend(p(I), 'stomach', 'prox colon', 'jejunum', 'ileum', 'cecum', 'Location','NorthWest');
+hold off;
+
+%%
+% Plot PC2 vs PC3 for Gut Region
+
+figure
+scatter(eigenvectors(:,2), eigenvectors(:,3), 100, color_by_GutRegion, 'filled');
+hold on;
+%title('Principal Component Analysis: Gut Location');
+xlabel(sprintf('PC2 = %.0f%%', explained(2,1)));
+ylabel(sprintf('PC3 = %.0f%%', explained(3,1)));
+[~, I] = unique(split_strings(:,3)); 
+I = length(split_strings(:,3)) - I(length(I):-1:1); 
+p = findobj(gca,'Type','Patch');
+%legend(p(I), 'stomach', 'prox colon', 'jejunum', 'ileum', 'cecum');
+hold off;
+
 
 %%
 
@@ -135,9 +168,9 @@ figure
 scatter3(eigenvectors(:,1), eigenvectors(:,2), eigenvectors(:,3), 100, color_by_ColonizationState, 'filled');
 hold on
 title('Principal Component Analysis: Colonization State');
-xlabel(sprintf('PC1 = %.3i', explained(1,1)));
-ylabel(sprintf('PC2 = %.3i', explained(2,1)));
-zlabel(sprintf('PC3 = %.3i', explained(3,1)));
+xlabel(sprintf('PC1 = %.0f%%', explained(1,1)));
+ylabel(sprintf('PC2 = %.0f%%', explained(2,1)));
+zlabel(sprintf('PC3 = %.0f%%', explained(3,1)));
 [~, I] = unique(split_strings(:,2)); 
 I = length(split_strings(:,2)) - I(length(I):-1:1); 
 p = findobj(gca,'Type','Patch');
