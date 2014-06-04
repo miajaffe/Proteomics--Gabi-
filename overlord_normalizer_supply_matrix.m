@@ -47,7 +47,7 @@ for mouse_num = 1:3
         end
     end
 end
-OverlordMatrix = cutoff_matrix
+OverlordMatrix2 = cutoff_matrix
 %%
 % First step is to acquire the MW of each and every protein.
 proteinID = {MusProt.Header};

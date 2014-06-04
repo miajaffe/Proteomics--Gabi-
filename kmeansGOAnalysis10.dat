@@ -1,0 +1,72 @@
+title1-# 	 title2-# 	 title3-# 	 title4-# 	 title5-# 	 title6-# 	 title7-# 	 title8-# 	 title9-# 	 title10-# 	
+
+
+1 secretorygranule 1 	 apicallaminaofhyalinelayer 1 	 responsetopeptidehormone 1 	   	   	   	   	   	   	   	
+
+
+2 extracellularspace 1 	 positiveregulationofcellproliferation 1 	 calcium-mediatedsignaling 1 	 regulationofcellmigration 1 	 CXCR4chemokinereceptorbinding 1 	 negativeregulationofmacrophageactivation 1 	 negativeregulationofinflammatoryresponse 1 	 negativeregulationofgastricacidsecretion 1 	 chemokine-mediatedsignalingpathway 1 	 positiveregulationofERK1andERK2cascade 1 	
+
+
+3 serine-typeendopeptidaseactivity 1 	   	   	   	   	   	   	   	   	   	
+
+
+4 molecular_function 1 	 proteinaceousextracellularmatrix 1 	 Golgilumen 1 	 biological_process 1 	 proteintransport 1 	 extracellularmatrix 1 	 zymogengranulemembrane 1 	 cytoplasmicmembrane-boundedvesiclelumen 1 	   	   	
+
+
+5 serine-typeendopeptidaseactivity 2 	 cellular_component 2 	   	   	   	   	   	   	   	   	
+
+
+6 molecular_function 1 	 carbonatedehydrataseactivity 1 	 extracellularspace 1 	 cytoplasm 1 	 one-carbonmetabolicprocess 1 	 zincionbinding 1 	   	   	   	   	
+
+
+7 extracellularspace 3 	 serine-typeendopeptidaseactivity 2 	 polysaccharidecatabolicprocess 1 	 virusreceptoractivity 1 	 glycoproteinbinding 1 	 immunesystemprocess 1 	 productionofmolecularmediatorinvolvedininflammatoryresponse 1 	 angiotensin-mediateddrinkingbehavior 1 	 endopeptidaseactivity 1 	 carboxypeptidaseactivity 1 	
+
+
+8 extracellularregion 6 	 biological_process 6 	 molecular_function 3 	 cellular_component 3 	 extracellularspace 3 	 lipidbinding 3 	 stressfiber 2 	 actinbinding 2 	 transporteractivity 2 	 calciumionbinding 2 	
+
+
+9 regulationofimmunesystemprocess 1 	 proteinbinding 1 	 extracellularregion 1 	 apicalplasmamembrane 1 	   	   	   	   	   	   	
+
+
+10 serine-typeendopeptidaseactivity 2 	 extracellularspace 2 	 spindlepole 1 	 responsetoamphetamine 1 	 regulationofheartrate 1 	 metallocarboxypeptidaseactivity 1 	 calciumionbinding 1 	 detectionofcalciumion 1 	 proteinbinding 1 	 nucleus 1 	
+
+
+11 extracellularregion 4 	 serine-typeendopeptidaseactivity 3 	 proteolysis 2 	 lipidcatabolicprocess 2 	 metalionbinding 2 	 negativeregulationoftranscriptionfromRNApolymeraseIIpromoter 1 	 metallocarboxypeptidaseactivity 1 	 triglyceridelipaseactivity 1 	 cellular_component 1 	 inflammatoryresponse 1 	
+
+
+12 molecular_function 1 	 proteinaceousextracellularmatrix 1 	 Golgilumen 1 	 biological_process 1 	 proteintransport 1 	 extracellularmatrix 1 	 zymogengranulemembrane 1 	 cytoplasmicmembrane-boundedvesiclelumen 1 	   	   	
+
+
+13 secretorygranule 1 	 apicallaminaofhyalinelayer 1 	 responsetopeptidehormone 1 	   	   	   	   	   	   	   	
+
+
+14 serine-typeendopeptidaseactivity 1 	   	   	   	   	   	   	   	   	   	
+
+
+15 serine-typeendopeptidaseactivity 1 	 cellular_component 1 	   	   	   	   	   	   	   	   	
+
+
+16 serine-typeendopeptidaseactivity 1 	 cellular_component 1 	   	   	   	   	   	   	   	   	
+
+
+17 extracellularspace 3 	 serine-typeendopeptidaseactivity 2 	 polysaccharidecatabolicprocess 1 	 virusreceptoractivity 1 	 glycoproteinbinding 1 	 immunesystemprocess 1 	 productionofmolecularmediatorinvolvedininflammatoryresponse 1 	 angiotensin-mediateddrinkingbehavior 1 	 endopeptidaseactivity 1 	 carboxypeptidaseactivity 1 	
+
+
+18 biological_process 2 	 chondrocytedifferentiation 1 	 molecular_function 1 	 cysteine-typeendopeptidaseinhibitoractivity 1 	 cellular_component 1 	 extracellularregion 1 	 extracellularspace 1 	 cytosol 1 	 lipidbinding 1 	 secretorygranule 1 	
+
+
+19 stressfiber 2 	 actinbinding 2 	 proteinbinding 2 	 extracellularregion 2 	 cytoplasm 2 	 podosome 1 	 skeletalmusclecontraction 1 	 steroidbinding 1 	 calciumionbinding 1 	 ATPbinding 1 	
+
+
+20 extracellularspace 2 	 molecular_function 1 	 oxygentransporteractivity 1 	 ironionbinding 1 	 extracellularregion 1 	 hemoglobincomplex 1 	 biological_process 1 	 lipidbinding 1 	 oxygenbinding 1 	 hemebinding 1 	
+
+
+21 serine-typeendopeptidaseactivity 4 	 extracellularregion 3 	 metallocarboxypeptidaseactivity 2 	 proteolysis 2 	 zincionbinding 2 	 metalionbinding 2 	 negativeregulationoftranscriptionfromRNApolymeraseIIpromoter 1 	 triglyceridelipaseactivity 1 	 cellular_component 1 	 extracellularspace 1 	
+
+
+22 serine-typeendopeptidaseactivity 1 	 extracellularspace 1 	 proteolysis 1 	 digestion 1 	 peptidaseactivity 1 	   	   	   	   	   	
+
+
+23 extracellularregion 1 	 digestion 1 	 enzymeactivatoractivity 1 	 lipidcatabolicprocess 1 	   	   	   	   	   	   	
+
+

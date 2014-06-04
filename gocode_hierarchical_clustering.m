@@ -5,6 +5,7 @@ clc
 load('axes140523.mat');
 load('normOverlordFinal_140523.mat');
 load('GOenrichMat'); % 2991 * 3 * 3 * 5 4d matrix 
+load('GOenrichMatAvg')
 all_samples = [];
 all_labels = {};
 normOverlord = normOverlordFinal; 
@@ -18,7 +19,7 @@ normOverlord = normOverlordFinal;
 for mouse_num = 1:3
     for colonization = 1:3
         for loc = 1:5
-            all_samples = [all_samples GOenrichMat(:,mouse_num, colonization, loc)];
+            all_samples = [all_samples GOenrichMatAvg(:,mouse_num, colonization, loc)];
             label = strcat(axes{2}{mouse_num}, '_', axes{3}{colonization} , '_', axes{4}{loc});           
             all_labels = [all_labels label];
         end
@@ -32,8 +33,8 @@ percentages = prctile(reshaped_samples, [25 50 75 90 95]);
 % 50% = 0 75% = 0.0006  90% = 0.0036   95% = 0.0084
 percentages2 = prctile(reshaped_samples, [81 82 83 84 85]);
 % 81% = 0.0011 83% = 0.0014 84% = 0.0016
-
+%%
 %This clustergram is capturing between 83-84% of the data. In other words
 %16-17% of the data is above the 0.0015 cutoff.
-%%
-cluster = clustergram(all_samples, 'ColumnLabels', all_labels', 'DisplayRange', 0.0015, 'Symmetric', 'true', 'Colormap', winter);
+%%0.0015
+cluster = clustergram(all_samples, 'ColumnLabels', all_labels', 'DisplayRange', 0.2955, 'Symmetric', 'true', 'Colormap', winter);

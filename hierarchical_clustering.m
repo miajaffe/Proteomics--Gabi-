@@ -57,7 +57,7 @@ percentages2 = prctile(reshaped_samples, [81 82 83 84 85])
 % individual clusters. 
 
 % 10% of the data is above the cutoff.
-cluster = clustergram(all_samples, 'ColumnLabels', all_labels', 'DisplayRange', 0.0015, 'Symmetric', 'true', 'Colormap', winter);
+cluster = clustergram(all_samples, 'ColumnLabels', all_labels', 'DisplayRange', 0.0012, 'Symmetric', 'true', 'Colormap', winter);
 %cluster = clustergram(all_samples, 'RowLabels', proteins, 'ColumnLabels', all_labels', 'DisplayRange', 0.0015, 'Symmetric', 'true', 'Colormap', winter);
 
 % clustergram(all_samples, 'RowPDist', 'spearman');

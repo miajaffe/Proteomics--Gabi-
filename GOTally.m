@@ -36,13 +36,23 @@ minindex = find(sortedGOOccur == min);
 sortedGOOccur = sortedGOOccur(minindex:length(sortedGOOccur));
 clear GOOccur
 GOtoIndexConverter = containers.Map();
+GOtoIndexConverterStr = containers.Map();
 IndextoGOConverter = containers.Map();
+IndextoGOConverterStr = containers.Map();
 %% Generates Maps to convert between numerical GO ID and index and vice versa
 for ii = 1:1:length(sortedGOOccur)
     tempGO = num2str(sortedGOOccur(ii));
     tempIndex = num2str(ii);
     GOtoIndexConverter(tempGO) = ii;
     IndextoGOConverter(tempIndex) = sortedGOOccur(ii);
+    zerocount = 7 - length(tempGO);
+    tempGO2 = tempGO;
+    for j = 1:1:zerocount
+        tempGO2 = strcat('0',tempGO2);
+    end
+    tempGO2 = strcat('GO:',tempGO2);
+    IndextoGOConverterStr(tempIndex) = tempGO2;
+    GOtoIndexConverterStr(tempGO2) = ii;
 end
 % We want to find the distribution of GO codes in each sample to see what
 % the statics and dynamics are of the GO codes
@@ -90,4 +100,6 @@ for ii = 1:1:size(GOenrichMatTemp,3)
 end
 save('GOenrichMat','GOenrichMat')
 save('GOtoIndexConverter','GOtoIndexConverter')
+save('GOtoIndexConverterStr','GOtoIndexConverterStr')
 save('IndextoGOConverter','IndextoGOConverter')
+save('IndextoGOConverterStr','IndextoGOConverterStr')
